@@ -260,7 +260,7 @@ public class UserRegisterRequest {
 
 这样我们的后端就可以直接把 json 格式的数据映射到我们的 `UserRegisterRequest` 类上。
 
-![img](E:\Pictures\Typora\@RequestBody.84a28a13.png)
+![img](C:\Users\Maktub\Pictures\Typora\@RequestBody.84a28a13.png)
 
 👉 需要注意的是：**一个请求方法只可以有一个`@RequestBody`，但是可以有多个`@RequestParam`和`@PathVariable`**。 如果你的方法必须要用两个 `@RequestBody`来接受数据的话，大概率是你的数据库设计或者系统设计出问题了！
 
@@ -275,18 +275,18 @@ public class UserRegisterRequest {
 ```yaml
 wuhan2020: 2020年初武汉爆发了新型冠状病毒，疫情严重，但是，我相信一切都会过去！武汉加油！中国加油！
 
-my-profile:
-  name: Guide哥
+my-profilC:\Users\Maktub
+  namC:\Users\Maktub Guide哥
   email: koushuangbwcx@163.com
 
 library:
   location: 湖北武汉加油中国加油
   books:
-    - name: 天才基本法
+    - namC:\Users\Maktub 天才基本法
       description: 二十二岁的林朝夕在父亲确诊阿尔茨海默病这天，得知自己暗恋多年的校园男神裴之即将出国深造的消息——对方考取的学校，恰是父亲当年为她放弃的那所。
-    - name: 时间的秩序
+    - namC:\Users\Maktub 时间的秩序
       description: 为什么我们记得过去，而非未来？时间“流逝”意味着什么？是我们存在于时间之内，还是时间存在于我们之中？卡洛·罗韦利用诗意的文字，邀请我们思考这一亘古难题——时间的本质。
-    - name: 了不起的我
+    - namC:\Users\Maktub 了不起的我
       description: 如何养成一个新习惯？如何让心智变得更成熟？如何拥有高质量的关系？ 如何走出人生的艰难时刻？
 ```
 
@@ -356,7 +356,7 @@ SpringBoot 项目的 spring-boot-starter-web 依赖中已经有 hibernate-valida
 
 **注**：更新版本的 spring-boot-starter-web 依赖中不再有 hibernate-validator 包（如2.3.11.RELEASE），需要自己引入 `spring-boot-starter-validation` 依赖。
 
-![img](E:\Pictures\Typora\c7bacd12-1c1a-4e41-aaaf-4cad840fc073.png)
+![img](C:\Users\Maktub\Pictures\Typora\c7bacd12-1c1a-4e41-aaaf-4cad840fc073.png)
 
 非 SpringBoot 项目需要自行引入相关依赖包，这里不多做讲解，具体可以查看我的这篇文章：《[如何在 Spring/Spring Boot 中做参数校验？你需要了解的都在这里！open in new window](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485783&idx=1&sn=a407f3b75efa17c643407daa7fb2acd6&chksm=cea2469cf9d5cf8afbcd0a8a1c9cc4294d6805b8e01bee6f76bb2884c5bc15478e91459def49&token=292197051&lang=zh_CN#rd)》。
 

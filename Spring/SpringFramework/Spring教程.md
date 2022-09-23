@@ -2,7 +2,7 @@
 
 **创始人**：Rod Johnson，Java和J2EE开发领域的专家，Spring框架的创始人，同时也是SpringSource的联合创始人。
 
-![image-20211212103702432](E:\Pictures\Typora\image-20211212103702432.8f9c2634.png)
+![image-20211212103702432](C:\Users\Maktub\Pictures\Typora\image-20211212103702432.8f9c2634.png)
 
 ### 一、Why Spring?（为什么使用spring）
 
@@ -964,7 +964,7 @@ exampleBean.setEmail(null);
 
 #### 6、循环依赖
 
-![image-20211128102816659](E:\Pictures\Typora\image-20211128102816659.73323c43.png)
+![image-20211128102816659](C:\Users\Maktub\Pictures\Typora\image-20211128102816659.73323c43.png)
 
 > 容器会按照如下方式执行bean依赖关系解析:
 
@@ -1001,7 +1001,7 @@ exampleBean.setEmail(null);
 
  换句话说，当您定义一个beanDifination并且它的作用域为单例时，Spring IoC容器会创建由该beanDifination定义的对象的一个实例。 这个实例对象会存储单例bean的缓存中，对该命名bean的所有后续请求和引用都会返回缓存的对象。 下面的图片展示了单例作用域是如何工作的:
 
-![singleton](E:\Pictures\Typora\singleton.517d1f2f.png)
+![singleton](C:\Users\Maktub\Pictures\Typora\singleton.517d1f2f.png)
 
  【Spring的单例bean概念不同于设计模式书中定义的单例模式】。 单例设计模式对对象的作用域进行硬编码，使得每个ClassLoader只创建一个特定类的实例。 Spring单例的作用域最好描述为每个容器和每个bean，这并不影响我们手动创建更多个实例。 单例作用域是Spring中的默认作用域。 要在XML中将beanDifination为单例，可以定义如下示例所示的bean:
 
@@ -1018,7 +1018,7 @@ exampleBean.setEmail(null);
 
 > 下图说明了Spring原型的作用域:
 
-![prototype](E:\Pictures\Typora\prototype.a17423f2.png)
+![prototype](C:\Users\Maktub\Pictures\Typora\prototype.a17423f2.png)
 
 > 下面的示例用XML将beanDifination为原型:
 
@@ -2888,7 +2888,7 @@ public class AppConfig {
     xmlns:jee="http://www.springframework.org/schema/jee"
     xsi:schemaLocation="...">
 
-    <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/datasource"/>
+    <jeC:\Users\Maktubjndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/datasource"/>
 </beans>
 ```
 
@@ -2911,7 +2911,7 @@ public class AppConfig {
     </beans>
 
     <beans profile="production">
-        <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/datasource"/>
+        <jeC:\Users\Maktubjndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/datasource"/>
     </beans>
 </beans>
 ```
@@ -2970,7 +2970,7 @@ System.out.println("Does my environment contain the 'my-property' property? " + 
 
  在前面的代码片段中，我们看到了查询Spring是否为当前环境定义了【my-property】属性的方法。 为了回答这个问题，“Environment”对象对一组【PropertySource】对象执行搜索。 “PropertySource”是对任何【键值对源】的一个简单抽象， spring的【StandardEnvironment】配置了两个PropertySource对象——一个代表JVM系统属性的集合（“System.getProperties()”）和一个代表系统环境变量的设置（System.getenv()”）。
 
-![image-20211215174653618](E:\Pictures\Typora\image-20211215174653618.8f4cf0ff.png)
+![image-20211215174653618](C:\Users\Maktub\Pictures\Typora\image-20211215174653618.8f4cf0ff.png)
 
  具体地说，当你使用【StandardEnvironment】时，如果【my-property】系统属性或【my-property】环境变量在运行时存在，对`env.containsProperty("my-property")`的调用将返回true。
 
@@ -3162,7 +3162,7 @@ Spring包含了几个内置的 `Resource` 实现，如下所示：
 
 ##### 1、`UrlResource`
 
-`UrlResource`包装了`java.net.URL`，可以用来访问任何需要通过URL访问的对象，例如文件、HTTPS目标、FTP目标等。 所有URL都用一个标准化的“String”表示，这样就可以使用适当的标准化前缀来表示不同类型的URL。 这包括用于访问文件系统路径的' file: '，用于通过https协议访问资源的' https: '，用于通过ftp访问资源的' ftp: '等。
+`UrlResource`包装了`java.net.URL`，可以用来访问任何需要通过URL访问的对象，例如文件、HTTPS目标、FTP目标等。 所有URL都用一个标准化的“String”表示，这样就可以使用适当的标准化前缀来表示不同类型的URL。 这包括用于访问文件系统路径的' filC:\Users\Maktub '，用于通过https协议访问资源的' https: '，用于通过ftp访问资源的' ftp: '等。
 
 ##### 2、 `ClassPathResource`
 
@@ -3224,7 +3224,7 @@ Resource template = ctx.getResource("classpath:some/resource/path/myTemplate.txt
 类似地，您可以通过指定任何标准的`java.net.URL`前缀来强制使用【UrlResource】。 下面的例子使用了【file】和【https】前缀:
 
 ```java
-Resource template = ctx.getResource("file:///some/resource/path/myTemplate.txt");
+Resource template = ctx.getResource("filC:\Users\Maktub///some/resource/path/myTemplate.txt");
 ```
 
 ```java
@@ -3233,12 +3233,12 @@ Resource template = ctx.getResource("https://myhost.com/resource/path/myTemplate
 
 下表总结了将' String '对象转换为' Resource '对象的策略:
 
-| 前缀       | 举例                             | 说明                                                         |
-| :--------- | :------------------------------- | :----------------------------------------------------------- |
-| classpath: | `classpath:com/myapp/config.xml` | 从类路径加载。                                               |
-| file:      | `file:///data/config.xml`        | 作为一个“URL”从文件系统加载。 请参见[' FileSystemResource ' Caveatsopen in new window](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-filesystemresource-caveats)。 |
-| https:     | `https://myserver/logo.png`      | 作为一个 `URL`加载。                                         |
-| (none)     | `/data/config.xml`               | 依赖于底层的 `ApplicationContext`。                          |
+| 前缀               | 举例                                   | 说明                                                         |
+| :----------------- | :------------------------------------- | :----------------------------------------------------------- |
+| classpath:         | `classpath:com/myapp/config.xml`       | 从类路径加载。                                               |
+| filC:\Users\Maktub | `filC:\Users\Maktub///data/config.xml` | 作为一个“URL”从文件系统加载。 请参见[' FileSystemResource ' Caveatsopen in new window](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-filesystemresource-caveats)。 |
+| https:             | `https://myserver/logo.png`            | 作为一个 `URL`加载。                                         |
+| (none)             | `/data/config.xml`                     | 依赖于底层的 `ApplicationContext`。                          |
 
 ### 四、 应用环境和资源路径
 
@@ -3280,7 +3280,7 @@ ApplicationContext ctx =
 
 > Ant-style的匹配原则
 
-![image-20211201212643242](E:\Pictures\Typora\image-20211201212643242.f2c29555.png)
+![image-20211201212643242](C:\Users\Maktub\Pictures\Typora\image-20211201212643242.f2c29555.png)
 
 > Ant-style 模式
 
@@ -3289,7 +3289,7 @@ ApplicationContext ctx =
 ```text
 /WEB-INF/*-context.xml
 com/mycompany/**/applicationContext.xml
-file:C:/some/path/*-context.xml
+filC:\Users\MaktubC:/some/path/*-context.xml
 classpath:com/mycompany/**/applicationContext.xml
 ```
 
@@ -3948,9 +3948,9 @@ List listOfLists = (List) parser.parseExpression("{{'a'，'b'}，{'x'，'y'}}").
 
 ```java
 // evaluates to a Java map containing the two entries
-Map inventorInfo = (Map) parser.parseExpression("{name:'Nikola'，dob:'10-July-1856'}").getValue(context);
+Map inventorInfo = (Map) parser.parseExpression("{namC:\Users\Maktub'Nikola'，dob:'10-July-1856'}").getValue(context);
 
-Map mapOfMaps = (Map) parser.parseExpression("{name:{first:'Nikola'，last:'Tesla'}，dob:{day:10，month:'July'，year:1856}}").getValue(context);
+Map mapOfMaps = (Map) parser.parseExpression("{namC:\Users\Maktub{first:'Nikola'，last:'Tesla'}，dob:{day:10，month:'July'，year:1856}}").getValue(context);
 ```
 
 `{:}`它本身就是一个空映射。 出于性能原因，如果映射本身由固定的文字或其他嵌套的常量结构(列表或映射)组成，则创建一个常量映射来表示表达式(而不是在每次求值时构建一个新映射)。 map键的引用是可选的(除非键包含句号(' . '))。 上面的例子没有使用引号键。
@@ -4223,7 +4223,7 @@ Expression exp = parser.parseExpression("'Hello World'.bytes.length gt 2 ? 2:3")
 
 批量给所有的service层的方法实现上统一加上事务，而不是一个个加：
 
-![image-20211206130611410](E:\Pictures\Typora\image-20211206130611410.af9bdf04.png)
+![image-20211206130611410](C:\Users\Maktub\Pictures\Typora\image-20211206130611410.af9bdf04.png)
 
 其实我们可以通过BeanPostProcessor做一个简单的实现：
 
@@ -4253,9 +4253,9 @@ Expression exp = parser.parseExpression("'Hello World'.bytes.length gt 2 ? 2:3")
 
 - Before advice :在连接点之前运行的通知，但不能阻止执行流继续执行到连接点(除非它抛出异常)。
 - After returning advice :在连接点正常完成后运行的通知(例如，如果方法返回而不引发异常)。
-- After throwing advice:在方法通过抛出异常退出时运行的通知。
-- After (finally) advice:不管连接点以何种方式退出(正常或异常返回)，都要运行的通知。
-- Around advice:围绕连接点(如方法调用)的通知。 这是最有力的建议。 Around通知可以在方法调用前后执行自定义行为。 它还负责选择是继续到连接点，还是通过返回自己的返回值或抛出异常来简化被通知的方法执行。
+- After throwing advicC:\Users\Maktub在方法通过抛出异常退出时运行的通知。
+- After (finally) advicC:\Users\Maktub不管连接点以何种方式退出(正常或异常返回)，都要运行的通知。
+- Around advicC:\Users\Maktub围绕连接点(如方法调用)的通知。 这是最有力的建议。 Around通知可以在方法调用前后执行自定义行为。 它还负责选择是继续到连接点，还是通过返回自己的返回值或抛出异常来简化被通知的方法执行。
 
 更多的内容会在后边的学习中进一步深入。
 
@@ -4366,43 +4366,43 @@ Spring AOP支持以下在切入点表达式中使用的AspectJ切入点指示器
 
 - `execution`: （常用）用于匹配方法执行的连接点，这是在使用Spring AOP时使用的主要切入点指示符。（匹配方法）
 
-![image-20211206155835362](E:\Pictures\Typora\image-20211206155835362.973942fb.png)
+![image-20211206155835362](C:\Users\Maktub\Pictures\Typora\image-20211206155835362.973942fb.png)
 
 - `within`: 用于匹配指定类型内的方法执行。（匹配整个类）
 
-![image-20211206160019905](E:\Pictures\Typora\image-20211206160019905.eba06d20.png)
+![image-20211206160019905](C:\Users\Maktub\Pictures\Typora\image-20211206160019905.eba06d20.png)
 
 - `this`: 用于匹配当前【AOP代理对象】类型的执行方法；注意是AOP代理对象的类型匹配，这样就可能【包括引入接口】也进行类型匹配。（配置整个类）
 
-![image-20211206160040279](E:\Pictures\Typora\image-20211206160040279.4d86c19f.png)
+![image-20211206160040279](C:\Users\Maktub\Pictures\Typora\image-20211206160040279.4d86c19f.png)
 
 - `target`: 用于匹配当前目标对象类型的执行方法；注意是目标对象的类型匹配，这样就【不包括引入接口】也进行类型匹配。（配置整个类）
 
-![image-20211206160056790](E:\Pictures\Typora\image-20211206160056790.0c9563ec.png)
+![image-20211206160056790](C:\Users\Maktub\Pictures\Typora\image-20211206160056790.0c9563ec.png)
 
 - `args`: 限制匹配连接点(使用Spring AOP时的方法执行)，其中参数是给定类型的实例。 （参数类型匹配）
 
-![image-20211206160112474](E:\Pictures\Typora\image-20211206160112474.06016645.png)
+![image-20211206160112474](C:\Users\Maktub\Pictures\Typora\image-20211206160112474.06016645.png)
 
 - `@target`: 用于匹配当前目标对象类型的执行方法，其中目标对象持有指定的注解 。（类上的注解）
 
-![image-20211206160242492](E:\Pictures\Typora\image-20211206160242492.70637337.png)
+![image-20211206160242492](C:\Users\Maktub\Pictures\Typora\image-20211206160242492.70637337.png)
 
 - `@args`: 用于匹配当前执行的方法传入的参数持有指定注解的执行。（参数上的注解）
 
-![image-20211206160309143](E:\Pictures\Typora\image-20211206160309143.8a1c0052.png)
+![image-20211206160309143](C:\Users\Maktub\Pictures\Typora\image-20211206160309143.8a1c0052.png)
 
 - `@within`: 用于匹配所有持有指定注解类型内的方法。（类上的注解）
 
-![image-20211206160256390](E:\Pictures\Typora\image-20211206160256390.ff41f6f4.png)
+![image-20211206160256390](C:\Users\Maktub\Pictures\Typora\image-20211206160256390.ff41f6f4.png)
 
 - `@annotation`: （常用）于匹配当前执行方法持有指定注解的方法。（方法上的注解）
 
-![image-20211206160329137](E:\Pictures\Typora\image-20211206160329137.8f97bcea.png)
+![image-20211206160329137](C:\Users\Maktub\Pictures\Typora\image-20211206160329137.8f97bcea.png)
 
 bean：使用“bean(Bean id或名字通配符)”匹配特定名称的Bean对象的执行方法；Spring ASP扩展的，在AspectJ中无相应概念。
 
-![image-20211206160712945](E:\Pictures\Typora\image-20211206160712945.4010a6b1.png)
+![image-20211206160712945](C:\Users\Maktub\Pictures\Typora\image-20211206160712945.4010a6b1.png)
 
 > 切入点表达式运算
 
@@ -4638,7 +4638,7 @@ public class AfterFinallyExample {
 
 Around通知是通过使用【@Around】注解声明的。 advice方法的第一个参数必须是【ProceedingJoinPoint】类型。 在通知体中，在【ProceedingJoinPoint】上调用【proceed()】会导致底层方法运行。 【proceed】方法也可以传入【Object[] 】。 当方法执行时，数组中的值被用作方法执行的参数。
 
-> 下面的例子展示了如何使用around advice:
+> 下面的例子展示了如何使用around advicC:\Users\Maktub
 
 ```java
 import org.aspectj.lang.annotation.Aspect;
@@ -4689,7 +4689,7 @@ private void beforeAdvice(JoinPoint jp) throws InvocationTargetException, Illega
 }
 ```
 
-![image-20211207174813931](E:\Pictures\Typora\image-20211207174813931.9bb8faab.png)
+![image-20211207174813931](C:\Users\Maktub\Pictures\Typora\image-20211207174813931.9bb8faab.png)
 
 > 将参数传递给Advice
 
@@ -4750,7 +4750,7 @@ bean.sendGif();
 
 搞过debug看到了，生成的代理实现了两个接口：
 
-![image-20211207184848931](E:\Pictures\Typora\image-20211207184848931.935d9190.png)
+![image-20211207184848931](C:\Users\Maktub\Pictures\Typora\image-20211207184848931.935d9190.png)
 
 #### 6、Advice Ordering
 

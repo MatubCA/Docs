@@ -1,4 +1,8 @@
-# SpringMVC
+## SpringMVC
+
+### SpringMVC架构图
+
+![](C:\Users\Maktub\Pictures\Typora\spring-mvc-handle.png)
 
 ## 一、引言
 
@@ -48,11 +52,11 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
   - 调用业务功能（Service）
   - 并根据处理结果控制程序的运行流程
 
-  ![image-20220913105529665](E:\Pictures\Typora\image-20220913105529665.png)
+  ![image-20220913105529665](C:\Users\Maktub\Pictures\Typora\image-20220913105529665.png)
 
 - **控制器的核心代码**
 
-  ![image-20220913110017094](E:\Pictures\Typora\image-20220913110017094.png)
+  ![image-20220913110017094](C:\Users\Maktub\Pictures\Typora\image-20220913110017094.png)
   
 - **现有控制器存在的问题**
 
@@ -66,7 +70,7 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
     3. 无法自动封装对象
     ```
 
-    ![image-20220913110926361](E:\Pictures\Typora\image-20220913110926361.png)
+    ![image-20220913110926361](C:\Users\Maktub\Pictures\Typora\image-20220913110926361.png)
 
   - **调用业务对象（Service）过程中存的问题**
 
@@ -87,9 +91,9 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
     3. 与视图层技术耦合
     ```
   
-    ![image-20220913111506240](E:\Pictures\Typora\image-20220913111506240.png)
+    ![image-20220913111506240](C:\Users\Maktub\Pictures\Typora\image-20220913111506240.png)
   
-    ![image-20220913112741603](E:\Pictures\Typora\image-20220913112741603.png)
+    ![image-20220913112741603](C:\Users\Maktub\Pictures\Typora\image-20220913112741603.png)
 
 ### 2.SpringMVC的学习要点
 
@@ -249,7 +253,7 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
 
 #### 2.3配置文件初始化
 
-- **web.xml**
+- **web.xml**（初始化Dispatcher）
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -275,6 +279,27 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
           <url-pattern>/</url-pattern>
       </servlet-mapping>
   </web-app>
+  ```
+
+  还可以实现由Servlet提供的接口，从而完成Dispatcher的初始化
+
+  ```java
+  public class MyDispatcherServlet extends AbstractDispatcherServletInitializer {
+      @Override
+      protected WebApplicationContext createServletApplicationContext() {
+          AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+          context.register(UserConfig.class);
+          return context;
+      }
+      @Override
+      protected String[] getServletMappings() {
+          return new String[]{"/"};
+      }
+      @Override
+      protected WebApplicationContext createRootApplicationContext() {
+          return null;
+      }
+  }
   ```
 
 - **dispatcher.xml**
@@ -318,14 +343,14 @@ SpringMVC 基于 Spring 就可以将 SpringFramework 的优点继承下来。
 
 - **SpringMVC的配置文件(dispatcher.xml)**
 
-  ![image-20220913162622871](E:\Pictures\Typora\image-20220913162622871.png)
+  ![image-20220913162622871](C:\Users\Maktub\Pictures\Typora\image-20220913162622871.png)
   
-  ![image-20220913163056382](E:\Pictures\Typora\image-20220913163056382.png)
+  ![image-20220913163056382](C:\Users\Maktub\Pictures\Typora\image-20220913163056382.png)
   
 
 ### 3.编码开发
 
-![image-20220913164014890](E:\Pictures\Typora\image-20220913164014890.png)
+![image-20220913164014890](C:\Users\Maktub\Pictures\Typora\image-20220913164014890.png)
 
 **开发流程**：
 
@@ -438,7 +463,7 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
     	
     	JS:						 location.href=;
     									
-    	ajax:					 $.ajax({url:url,type:"get",...})	
+    	ajax:					 $.ajax({url:url,typC:\Users\Maktub\Pictures\Typora\"get",...})	
     	
     	专属工具或者库:	POSTMAN | POSTWOMAN | RestfulToolKits | RestTemplate | HttpClient | OKHttp | NsMutableURLRequest
     	
@@ -446,7 +471,7 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
     
     	表单:          <from action="${pageCntext.request.contextPath}/firstController/first" method="post"></from>
     	
-    	ajax:         $.ajax({url:url,type:"post",...})	
+    	ajax:         $.ajax({url:url,typC:\Users\Maktub"post",...})	
     	
     	专属工具库:    POSTMAN | POSTWOMAN | RestfulToolKits | RestTemplate | HttpClient | OKHttp | NsMutableURLRequest
     
@@ -454,17 +479,17 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
   - @RequestMapping如何限定请求方式
 
-    ![image-20220914131026489](E:\Pictures\Typora\image-20220914131026489.png)
+    ![image-20220914131026489](C:\Users\Maktub\Pictures\Typora\image-20220914131026489.png)
 
   - Http协议中的其它请求方式
 
-    ![image-20220914131602851](E:\Pictures\Typora\image-20220914131602851.png)
+    ![image-20220914131602851](C:\Users\Maktub\Pictures\Typora\image-20220914131602851.png)
 
   - @RequestMapping限定方法参数
 
     服务方法可以任意选取域对象参数
 
-    ![image-20220914144711993](E:\Pictures\Typora\image-20220914144711993.png)
+    ![image-20220914144711993](C:\Users\Maktub\Pictures\Typora\image-20220914144711993.png)
 
   - 那种方式更为常用
 
@@ -506,7 +531,7 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
   将原来页面跳转中变化的提取出来，只留下不变的东西。
 
-  ![image-20220914153955229](E:\Pictures\Typora\image-20220914153955229.png)
+  ![image-20220914153955229](C:\Users\Maktub\Pictures\Typora\image-20220914153955229.png)
 
   通过视图解析器ViewResolver进行跳转路径的拼接。
 
@@ -537,7 +562,9 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
 ### 8.SpringMVC配置文件的默认设置
 
-![image-20220914193409438](E:\Pictures\Typora\image-20220914193409438.png)
+![image-20220914193409438](C:\Users\Maktub\Pictures\Typora\image-20220914193409438.png)
+
+
 
 
 
@@ -553,13 +580,13 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
 #### 2.1回顾
 
-![image-20220914194047550](E:\Pictures\Typora\image-20220914194047550.png)
+![image-20220914194047550](C:\Users\Maktub\Pictures\Typora\image-20220914194047550.png)
 
 
 
 #### 2.2基于ServletAPI接受用户参数
 
-![image-20220914194619894](E:\Pictures\Typora\image-20220914194619894.png)
+![image-20220914194619894](C:\Users\Maktub\Pictures\Typora\image-20220914194619894.png)
 
 #### 2.3基于简单变量接收Client参数
 
@@ -567,7 +594,7 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
 思路分析：
 
-![image-20220914195110996](E:\Pictures\Typora\image-20220914195110996.png)
+![image-20220914195110996](C:\Users\Maktub\Pictures\Typora\image-20220914195110996.png)
 
 发送数据的name属性值要与参数的名字一致。
 
@@ -575,49 +602,59 @@ SpringMVC开发中的Controller也称为Handler（SpringMVC内部叫法）
 
   - SpringMVC支持常见类型（8中基本数据类型及包装器以及String类型）的自动转换
 
-    ![image-20220915123739981](E:\Pictures\Typora\image-20220915123739981.png)
+    ![image-20220915123739981](C:\Users\Maktub\Pictures\Typora\image-20220915123739981.png)
 
   - 基本数据类型尽量使用包装器
 
-    ![image-20220915124125009](E:\Pictures\Typora\image-20220915124125009.png)
+    ![image-20220915124125009](C:\Users\Maktub\Pictures\Typora\image-20220915124125009.png)
 
 #### 2.4基于POJO类型接受Client参数
 
 - 什么是POJO
 
-  ![image-20220915124751866](E:\Pictures\Typora\image-20220915124751866.png)
+  ![image-20220915124751866](C:\Users\Maktub\Pictures\Typora\image-20220915124751866.png)
 
 - 使用场景
 
-  ![image-20220915125130543](E:\Pictures\Typora\image-20220915125130543.png)
+  ![image-20220915125130543](C:\Users\Maktub\Pictures\Typora\image-20220915125130543.png)
 
 - 注意1
 
-  ![image-20220915125549727](E:\Pictures\Typora\image-20220915125549727.png)
+  ![image-20220915125549727](C:\Users\Maktub\Pictures\Typora\image-20220915125549727.png)
 
 - 注意点2
 
-  ![image-20220915125857653](E:\Pictures\Typora\image-20220915125857653.png)
+  ![image-20220915125857653](C:\Users\Maktub\Pictures\Typora\image-20220915125857653.png)
 
 #### 2.5基于一组简单变量接受Client参数
 
-![image-20220915130353747](E:\Pictures\Typora\image-20220915130353747.png)
+![image-20220915130353747](C:\Users\Maktub\Pictures\Typora\image-20220915130353747.png)
 
 - 细节
 
   能不能用集合接受一组参数
 
-  ![image-20220915131056705](E:\Pictures\Typora\image-20220915131056705.png)
+  ![image-20220915131056705](C:\Users\Maktub\Pictures\Typora\image-20220915131056705.png)
 
 #### 2.6接受一组POJO类型的对象的请求参数
 
 通过一个包装类进行封装
 
-![image-20220916161336493](E:\Pictures\Typora\image-20220916161336493.png)
+![image-20220916161336493](C:\Users\Maktub\Pictures\Typora\image-20220916161336493.png)
 
 #### 2.7SpringMVC接受Client请求参数的总结
 
-![image-20220916162243869](E:\Pictures\Typora\image-20220916162243869.png)
+![image-20220916162243869](C:\Users\Maktub\Pictures\Typora\image-20220916162243869.png)
+
+#### 2.8接受JSON类型数据
+
+开启SpringMVC识别JSON，在配置类加上
+
+```java
+@EnableWebmvc
+```
+
+
 
 ### 3.@RequestParam注解
 
@@ -634,21 +671,21 @@ public String param1(@RequestParam String name,@RequestParam String password){
 
 - 解决请求参数和方法形参名字不一致的问题
 
-  ![image-20220916163318120](E:\Pictures\Typora\image-20220916163318120.png)
+  ![image-20220916163318120](C:\Users\Maktub\Pictures\Typora\image-20220916163318120.png)
 
 - 注意事项
 
-  ![image-20220916163417087](E:\Pictures\Typora\image-20220916163417087.png)
+  ![image-20220916163417087](C:\Users\Maktub\Pictures\Typora\image-20220916163417087.png)
 
 - @RequestParam的required属性
 
-  ![image-20220916164538198](E:\Pictures\Typora\image-20220916164538198.png)
+  ![image-20220916164538198](C:\Users\Maktub\Pictures\Typora\image-20220916164538198.png)
 
 - RequestParam的defaultValue属性
 
   - 客户端没有提交数据的时候，给对应的形参设置默认值
 
-    ![image-20220916165042800](E:\Pictures\Typora\image-20220916165042800.png)
+    ![image-20220916165042800](C:\Users\Maktub\Pictures\Typora\image-20220916165042800.png)
 
   - 解决控制器方法形参，使用包装类的问题
 
@@ -656,7 +693,7 @@ public String param1(@RequestParam String name,@RequestParam String password){
 
   - 未来开发中的使用场景
 
-    ![image-20220916165651108](E:\Pictures\Typora\image-20220916165651108.png)
+    ![image-20220916165651108](C:\Users\Maktub\Pictures\Typora\image-20220916165651108.png)
 
 ### 4.中文请求参数乱码的问题
 
@@ -664,15 +701,15 @@ public String param1(@RequestParam String name,@RequestParam String password){
 
 - GET请求乱码解决方案
 
-  ![image-20220916170121209](E:\Pictures\Typora\image-20220916170121209.png)
+  ![image-20220916170121209](C:\Users\Maktub\Pictures\Typora\image-20220916170121209.png)
 
 - POST请求乱码解决方案
 
-  ![image-20220916170509997](E:\Pictures\Typora\image-20220916170509997.png)
+  ![image-20220916170509997](C:\Users\Maktub\Pictures\Typora\image-20220916170509997.png)
 
 #### 4.2SpringMVC解决中文字符集乱码
 
-![image-20220916170720518](E:\Pictures\Typora\image-20220916170720518.png)
+![image-20220916170720518](C:\Users\Maktub\Pictures\Typora\image-20220916170720518.png)
 
 web.xml
 
@@ -699,19 +736,19 @@ SpringMVC提供了内置类型转换器，把客户端提交的字符串类型�
 
 SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集合等
 
-![image-20220916171917159](E:\Pictures\Typora\image-20220916171917159.png)
+![image-20220916171917159](C:\Users\Maktub\Pictures\Typora\image-20220916171917159.png)
 
 - 原理分析
 
-  ![image-20220916173558807](E:\Pictures\Typora\image-20220916173558807.png)
+  ![image-20220916173558807](C:\Users\Maktub\Pictures\Typora\image-20220916173558807.png)
 
-  ![image-20220916173644703](E:\Pictures\Typora\image-20220916173644703.png)
+  ![image-20220916173644703](C:\Users\Maktub\Pictures\Typora\image-20220916173644703.png)
 
 #### 5.2自定义类型转换器
 
-![image-20220916174945254](E:\Pictures\Typora\image-20220916174945254.png)
+![image-20220916174945254](C:\Users\Maktub\Pictures\Typora\image-20220916174945254.png)
 
-![image-20220916175116171](E:\Pictures\Typora\image-20220916175116171.png)
+![image-20220916175116171](C:\Users\Maktub\Pictures\Typora\image-20220916175116171.png)
 
 ### 6.接收其它请求参数
 
@@ -719,37 +756,37 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
 - 分析
 
-  ![image-20220916175545790](E:\Pictures\Typora\image-20220916175545790.png)
+  ![image-20220916175545790](C:\Users\Maktub\Pictures\Typora\image-20220916175545790.png)
 
 - 单值动态参数收集
 
-  ![image-20220916175601868](E:\Pictures\Typora\image-20220916175601868.png)
+  ![image-20220916175601868](C:\Users\Maktub\Pictures\Typora\image-20220916175601868.png)
 
 - 多值动态参数收集
 
-  ![image-20220916180013171](E:\Pictures\Typora\image-20220916180013171.png)
+  ![image-20220916180013171](C:\Users\Maktub\Pictures\Typora\image-20220916180013171.png)
 
   MultiValueMap的key为参数名，value是一个list集合，存储多个参数值
 
 - 应用场景
 
-  ![image-20220916180810957](E:\Pictures\Typora\image-20220916180810957.png)
+  ![image-20220916180810957](C:\Users\Maktub\Pictures\Typora\image-20220916180810957.png)
 
 #### 6.2接受Cookie数据
 
 - Servlet中获取方式
 
-  ![image-20220916181036147](E:\Pictures\Typora\image-20220916181036147.png)
+  ![image-20220916181036147](C:\Users\Maktub\Pictures\Typora\image-20220916181036147.png)
 
 - SpringMVC中获取方式
 
-  ![image-20220916181203860](E:\Pictures\Typora\image-20220916181203860.png)
+  ![image-20220916181203860](C:\Users\Maktub\Pictures\Typora\image-20220916181203860.png)
 
 #### 6.3接受请求头数据
 
 - 什么是请求头
 
-  ![image-20220916181930130](E:\Pictures\Typora\image-20220916181930130.png)
+  ![image-20220916181930130](C:\Users\Maktub\Pictures\Typora\image-20220916181930130.png)
 
 - 获取请求头方式
 
@@ -761,7 +798,7 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
   - SpringMVC
 
-    ![image-20220916182245577](E:\Pictures\Typora\image-20220916182245577.png)
+    ![image-20220916182245577](C:\Users\Maktub\Pictures\Typora\image-20220916182245577.png)
 
 ## 四、SpringMVC控制器开发详解二
 
@@ -775,9 +812,9 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
 #### 2.1思路分析
 
-![image-20220916183432206](E:\Pictures\Typora\image-20220916183432206.png)
+![image-20220916183432206](C:\Users\Maktub\Pictures\Typora\image-20220916183432206.png)
 
-![image-20220916183459762](E:\Pictures\Typora\image-20220916183459762.png)
+![image-20220916183459762](C:\Users\Maktub\Pictures\Typora\image-20220916183459762.png)
 
 #### 2.2编码
 
@@ -787,9 +824,9 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
 - 现有SSM整合存在的问题
 
-  ![image-20220916185455616](E:\Pictures\Typora\image-20220916185455616.png)
+  ![image-20220916185455616](C:\Users\Maktub\Pictures\Typora\image-20220916185455616.png)
 
-  ![image-20220916185553276](E:\Pictures\Typora\image-20220916185553276.png)
+  ![image-20220916185553276](C:\Users\Maktub\Pictures\Typora\image-20220916185553276.png)
 
 - 解决方案
 
@@ -797,13 +834,13 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
   对MVC和非MVC的配置文件进行拆分
 
-  ![image-20220916190235415](E:\Pictures\Typora\image-20220916190235415.png)
+  ![image-20220916190235415](C:\Users\Maktub\Pictures\Typora\image-20220916190235415.png)
 
   Controller由MVC创建，Service由Spring创建
 
   一个原则：子工厂没有的东西可以去父工工厂获取，但是父工厂没有的动词不能去子工厂获取，所以Controller可以获取Service
 
-  ![image-20220916191235145](E:\Pictures\Typora\image-20220916191235145.png)
+  ![image-20220916191235145](C:\Users\Maktub\Pictures\Typora\image-20220916191235145.png)
 
 - 编码
 
@@ -819,11 +856,11 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
   设置了相同的包扫描路径，都会创建Controller和Service，Client会先去子容器中寻找。而子容器中并没有设置事务。
 
-  ![image-20220916192050209](E:\Pictures\Typora\image-20220916192050209.png)
+  ![image-20220916192050209](C:\Users\Maktub\Pictures\Typora\image-20220916192050209.png)
 
 - 解决方案
 
-  ![image-20220916192606473](E:\Pictures\Typora\image-20220916192606473.png)
+  ![image-20220916192606473](C:\Users\Maktub\Pictures\Typora\image-20220916192606473.png)
 
 ### 3.SpringMVC控制器调用业务对象总结（SSM）
 
@@ -831,75 +868,75 @@ SpringMVC只提供了常见类型的转换器：8中基本数据类型+常见集
 
 - web.xml
 
-  ![image-20220916192853182](E:\Pictures\Typora\image-20220916192853182.png)
+  ![image-20220916192853182](C:\Users\Maktub\Pictures\Typora\image-20220916192853182.png)
 
 - dispatcher.xml
 
-  ![image-20220916192943102](E:\Pictures\Typora\image-20220916192943102.png)
+  ![image-20220916192943102](C:\Users\Maktub\Pictures\Typora\image-20220916192943102.png)
 
 - applicationContext.xml
 
-  ![image-20220916193041552](E:\Pictures\Typora\image-20220916193041552.png)
+  ![image-20220916193041552](C:\Users\Maktub\Pictures\Typora\image-20220916193041552.png)
 
 - DAO
 
-  ![image-20220916193139329](E:\Pictures\Typora\image-20220916193139329.png)
+  ![image-20220916193139329](C:\Users\Maktub\Pictures\Typora\image-20220916193139329.png)
 
 - Service
 
-  ![image-20220916193212826](E:\Pictures\Typora\image-20220916193212826.png)
+  ![image-20220916193212826](C:\Users\Maktub\Pictures\Typora\image-20220916193212826.png)
 
 - Controller
 
-  ![image-20220916193251600](E:\Pictures\Typora\image-20220916193251600.png)
+  ![image-20220916193251600](C:\Users\Maktub\Pictures\Typora\image-20220916193251600.png)
 
 ## 五、SpringMVC控制器开发详解三
 
 ### 1.核心要点
 
-前面学习了SpringMVC作用中的接收用户请求参数和调用业务对象，这章将学习流程跳转
+前面学习了SpringMVC作用中的接收用户请求参数和调用业务对象，这章将学习流程跳转\发出响应
 
 ### 2.JavaWeb中流程跳转的回顾
 
 #### 2.1JavaWeb流程跳转的核心代码
 
-![image-20220916193711084](E:\Pictures\Typora\image-20220916193711084.png)
+![image-20220916193711084](C:\Users\Maktub\Pictures\Typora\image-20220916193711084.png)
 
 #### 2.2JavaWeb页面跳转方式的回顾
 
-![image-20220916194025530](E:\Pictures\Typora\image-20220916194025530.png)
+![image-20220916194025530](C:\Users\Maktub\Pictures\Typora\image-20220916194025530.png)
 
 Session：状态、购物车、验证码...
 
-![image-20220916194841787](E:\Pictures\Typora\image-20220916194841787.png)
+![image-20220916194841787](C:\Users\Maktub\Pictures\Typora\image-20220916194841787.png)
 
 如果传输的是对象类型，需要把对象中的数据取出，将这些数据拼接
 
 #### 2.3SpringMVC的四种跳转方式
 
-![image-20220916195421128](E:\Pictures\Typora\image-20220916195421128.png)
+![image-20220916195421128](C:\Users\Maktub\Pictures\Typora\image-20220916195421128.png)
 
 #### 2.4控制器forward页面
 
-![image-20220916195655472](E:\Pictures\Typora\image-20220916195655472.png)
+![image-20220916195655472](C:\Users\Maktub\Pictures\Typora\image-20220916195655472.png)
 
 #### 2.5控制器redirect页面
 
-![image-20220916195834801](E:\Pictures\Typora\image-20220916195834801.png)
+![image-20220916195834801](C:\Users\Maktub\Pictures\Typora\image-20220916195834801.png)
 
 #### 2.6控制器forward控制器
 
 - 应用场景
 
-  ![image-20220916200320128](E:\Pictures\Typora\image-20220916200320128.png)
+  ![image-20220916200320128](C:\Users\Maktub\Pictures\Typora\image-20220916200320128.png)
 
 - 编码
 
-  ![image-20220916200437621](E:\Pictures\Typora\image-20220916200437621.png)
+  ![image-20220916200437621](C:\Users\Maktub\Pictures\Typora\image-20220916200437621.png)
 
 #### 2.7控制器redirect控制器
 
-  ![image-20220916200727810](E:\Pictures\Typora\image-20220916200727810.png)
+  ![image-20220916200727810](C:\Users\Maktub\Pictures\Typora\image-20220916200727810.png)
 
 在JavaWeb中需要在路径中添加应用名，而SpringMVC中不用添加
 
@@ -909,23 +946,23 @@ Session：状态、购物车、验证码...
 
 - 三种作用域及其使用场景
 
-  ![image-20220916201325240](E:\Pictures\Typora\image-20220916201325240.png)
+  ![image-20220916201325240](C:\Users\Maktub\Pictures\Typora\image-20220916201325240.png)
 
 #### 3.2SpringMVC中作用域处理
 
 - 基本使用方式及其存在的问题
 
-  ![image-20220916201810320](E:\Pictures\Typora\image-20220916201810320.png)
+  ![image-20220916201810320](C:\Users\Maktub\Pictures\Typora\image-20220916201810320.png)
 
-  ![image-20220916202122830](E:\Pictures\Typora\image-20220916202122830.png)
+  ![image-20220916202122830](C:\Users\Maktub\Pictures\Typora\image-20220916202122830.png)
 
-  ![image-20220916202410588](E:\Pictures\Typora\image-20220916202410588.png)
+  ![image-20220916202410588](C:\Users\Maktub\Pictures\Typora\image-20220916202410588.png)
 
 - SpringMVC中request作用域的处理
 
   - 代码
 
-    ![image-20220916202548783](E:\Pictures\Typora\image-20220916202548783.png)
+    ![image-20220916202548783](C:\Users\Maktub\Pictures\Typora\image-20220916202548783.png)
 
   - Model、ModelMap的相关细节
 
@@ -933,7 +970,7 @@ Session：状态、购物车、验证码...
     1. 通过Model、ModelMap进行作用域的处理，就可以解决视图模板耦合的问题
     ```
 
-    ![image-20220916203157550](E:\Pictures\Typora\image-20220916203157550.png)
+    ![image-20220916203157550](C:\Users\Maktub\Pictures\Typora\image-20220916203157550.png)
 
     SpringMVC通过视图解析器识别不同的视图模板
 
@@ -941,33 +978,33 @@ Session：状态、购物车、验证码...
     2. SpringMVC中提供的Model和ModelMap这两种方式处理request作用域，它们的区别是什么
     ```
 
-    ![image-20220916224812412](E:\Pictures\Typora\image-20220916224812412.png)
+    ![image-20220916224812412](C:\Users\Maktub\Pictures\Typora\image-20220916224812412.png)
 
     ```markdown
     3. 为什么不直接使用BindingAwareModelMap？
     ```
 
-    ![image-20220916225920078](E:\Pictures\Typora\image-20220916225920078.png)
+    ![image-20220916225920078](C:\Users\Maktub\Pictures\Typora\image-20220916225920078.png)
 
     ```markdown
     4. SpringMVC开发中为什么会提供两种方式？Model和ModelMap那种方式更为推荐？
     ```
 
-    ![image-20220916230341316](E:\Pictures\Typora\image-20220916230341316.png)
+    ![image-20220916230341316](C:\Users\Maktub\Pictures\Typora\image-20220916230341316.png)
 
-    ![image-20220916225659118](E:\Pictures\Typora\image-20220916225659118.png)
+    ![image-20220916225659118](C:\Users\Maktub\Pictures\Typora\image-20220916225659118.png)
 
     ```markdown
     5. 如果redirect跳转，数据该如何传递？
     ```
 
-    ![image-20220916230744779](E:\Pictures\Typora\image-20220916230744779.png)
+    ![image-20220916230744779](C:\Users\Maktub\Pictures\Typora\image-20220916230744779.png)
 
 - SpringMVC中Session作用域的处理
 
   - 基本使用及其存在的问题
 
-    ![image-20220916231021720](E:\Pictures\Typora\image-20220916231021720.png)
+    ![image-20220916231021720](C:\Users\Maktub\Pictures\Typora\image-20220916231021720.png)
 
   - @SessionAttributes注解
 
@@ -975,69 +1012,69 @@ Session：状态、购物车、验证码...
 
     - 存储数据
 
-      ![image-20220916231519575](E:\Pictures\Typora\image-20220916231519575.png)
+      ![image-20220916231519575](C:\Users\Maktub\Pictures\Typora\image-20220916231519575.png)
 
-      ![image-20220916231714964](E:\Pictures\Typora\image-20220916231714964.png)
+      ![image-20220916231714964](C:\Users\Maktub\Pictures\Typora\image-20220916231714964.png)
 
     - 注意
 
-      ![image-20220916232029051](E:\Pictures\Typora\image-20220916232029051.png)
+      ![image-20220916232029051](C:\Users\Maktub\Pictures\Typora\image-20220916232029051.png)
 
     - 删除数据
 
-      ![image-20220916232340170](E:\Pictures\Typora\image-20220916232340170.png)
+      ![image-20220916232340170](C:\Users\Maktub\Pictures\Typora\image-20220916232340170.png)
 
 - SpringMVC中application作用域的处理
 
-  ![image-20220916233103968](E:\Pictures\Typora\image-20220916233103968.png)
+  ![image-20220916233103968](C:\Users\Maktub\Pictures\Typora\image-20220916233103968.png)
 
   - 为什么SpringMVC没有提供application作用域
 
-    ![image-20220916233356452](E:\Pictures\Typora\image-20220916233356452.png)
+    ![image-20220916233356452](C:\Users\Maktub\Pictures\Typora\image-20220916233356452.png)
 
 - 特殊操作
 
   - @ModelAttribute注解
 
-    ![image-20220916234025439](E:\Pictures\Typora\image-20220916234025439.png)
+    ![image-20220916234025439](C:\Users\Maktub\Pictures\Typora\image-20220916234025439.png)
 
   - 使用场景
 
-    ![image-20220916234633563](E:\Pictures\Typora\image-20220916234633563.png)
+    ![image-20220916234633563](C:\Users\Maktub\Pictures\Typora\image-20220916234633563.png)
 
   - 注意细节
 
     - 细节一
 
-      ![image-20220916235120625](E:\Pictures\Typora\image-20220916235120625.png)
+      ![image-20220916235120625](C:\Users\Maktub\Pictures\Typora\image-20220916235120625.png)
 
     - 细节二
 
-      ![image-20220916235203211](E:\Pictures\Typora\image-20220916235203211.png)
+      ![image-20220916235203211](C:\Users\Maktub\Pictures\Typora\image-20220916235203211.png)
 
 - ModelAndView技术
 
   - 什么是ModelAndView【了解】
 
-    ![image-20220917000316250](E:\Pictures\Typora\image-20220917000316250.png)
+    ![image-20220917000316250](C:\Users\Maktub\Pictures\Typora\image-20220917000316250.png)
 
-    ![image-20220917000752115](E:\Pictures\Typora\image-20220917000752115.png)
+    ![image-20220917000752115](C:\Users\Maktub\Pictures\Typora\image-20220917000752115.png)
 
   - 总结目前控制器方法的返回值
 
-    ![image-20220917001157664](E:\Pictures\Typora\image-20220917001157664.png)
+    ![image-20220917001157664](C:\Users\Maktub\Pictures\Typora\image-20220917001157664.png)
 
 ### 4.视图控制器
 
 ####  4.1什么是视图控制器
 
-![image-20220917001325057](E:\Pictures\Typora\image-20220917001325057.png)
+![image-20220917001325057](C:\Users\Maktub\Pictures\Typora\image-20220917001325057.png)
 
 #### 4.2受保护的视图模板该如何访问
 
 所有视图模板只能通过控制器的forward进行访问
 
-![image-20220919085203152](E:\Pictures\Typora\image-20220919085203152.png)
+![image-20220919085203152](C:\Users\Maktub\Pictures\Typora\image-20220919085203152.png)
 
 使用试图控制器，简单的创建空的只用于跳转到JSP的控制器方法，在标签中设置
 
@@ -1045,7 +1082,7 @@ Session：状态、购物车、验证码...
 
 #### 3.视图控制器的redirect跳转
 
-![image-20220919085827827](E:\Pictures\Typora\image-20220919085827827.png)
+![image-20220919085827827](C:\Users\Maktub\Pictures\Typora\image-20220919085827827.png)
 
 ### 5.静态资源处理
 
@@ -1058,6 +1095,26 @@ Session：状态、购物车、验证码...
 #### 5.2原因
 
 用户请求被DispatcherServlet接收之后，DispatcherServlet会去查找是否存在同名的控制器方法，找到之后，实例化对象，调用控制器方法，但是现在很明显是找不到，所以会报404错误
+
+#### 5.3解决方法
+
+- 激活Tomcat提供的DefaultServlet，在请求进入DispatcherServlet之前，先由DefaultServlet将对于静态资源的访问URL拿走
+- `<mvc:resources>`，url转移，将对于requestMapping的请求转移到ResurceHttpRequestHandler中
+- `<mvc:default-servlet-handler>`，将requestMapping的请求转移到DefaultServletRHttpRequestHandler中
+
+
+
+
+
+
+
+### restful
+
+![image-20220920143744442](C:\Users\Maktub\AppData\Roaming\Typora\typora-user-images\image-20220920143744442.png)
+
+
+
+
 
 ## Thymeleaf
 
@@ -1091,50 +1148,3 @@ S pring工厂是一个重量级资源，创建一次
 
 
 
-Install-Module PSReadLine -Scope AllUsers -AllowPrerelease -Force -Verbose
-
-
-
-
-
-\#设置执行权限 Set-ExecutionPolicy RemoteSigned -scope CurrentUser 
-
-#从网络下载脚本并安装 Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh') 
-
-#( 如果出现错误提示，是因为访问不了目标地址，使用如下地址安装 ) Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://cdn.yulinyige.com/script/scoop-installs.ps1')
-
-
-
-Install-Module posh-git 
-
-Install-Module oh-my-posh
-
-
-
-
-
-
-
-#这是开启默认配置的 Set-Prompt 
-
-#设置主题，Agnoster 是主题名  Set-Theme Agnoster
-
-
-
-$PROFILE
-
-oh-my-posh --print-shell
-
-
-
-
-Install-Module -Name PSReadLine -Scope AllUsers -Force -SkipPublisherCheck
-
-
-Install-Module posh-git -Scope AllUsers
-
-Install-Module oh-my-posh -Scope AllUsers
-
-
-
-Set-PoshPrompt -Theme agnoster

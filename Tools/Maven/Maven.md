@@ -34,13 +34,13 @@ idea帮我们编译
 
 “ 项目结构”对话框允许您管理项目和IDE级别的元素，例如Modules，Facets，Libraries， Artifacts和SDK。
 
-![image-20210119111048614](E:\Pictures\Typora\image-20210119111048614.4a7441bb.png)
+![image-20210119111048614](C:\Users\Maktub\Pictures\Typora\image-20210119111048614.4a7441bb.png)
 
 > 打开方式有两种
 
 1、通过工具栏
 
-![image-20210119111108638](E:\Pictures\Typora\image-20210119111108638.f876f239.png)
+![image-20210119111108638](C:\Users\Maktub\Pictures\Typora\image-20210119111108638.f876f239.png)
 
 2、通过快捷键
 
@@ -52,7 +52,7 @@ idea帮我们编译
 
 指定项目名称，SDK，语言级别和编译器输出路径。
 
-![image-20210119111143285](E:\Pictures\Typora\image-20210119111143285.efcbc3bb.png)
+![image-20210119111143285](C:\Users\Maktub\Pictures\Typora\image-20210119111143285.efcbc3bb.png)
 
 - Project name：项目名，使用此字段编辑项目名称。
 
@@ -68,7 +68,7 @@ idea帮我们编译
 
 指定项目名称，SDK，语言级别和编译器输出路径。
 
-![image-20210119111444851](E:\Pictures\Typora\image-20210119111444851.8ae4fd60.png)
+![image-20210119111444851](C:\Users\Maktub\Pictures\Typora\image-20210119111444851.8ae4fd60.png)
 
 - Name：项目名称
 - Souces：这里对Module的开发目录进行文件夹分类，就是说这个module里有什么内容，说明了不同性质的内容放在哪里。 注意，这些不同内容的标记代表了一个标准Java工程的各项内容，IntelliJ就是根据这些标记来识别一个Java工程的各项内容的，比如，它会用javac去编译标记为Sources的源码，打包的时候会把标记为Resources的资源拷贝到jar包中，并且忽略标记为Exluded的内容。左边显示的是在选中内容的预览。
@@ -89,7 +89,7 @@ Excluded：设置配出编译检查的文件，例如我们在project模块设�
 
 #### （4）Paths
 
-![image-20210119111623417](E:\Pictures\Typora\image-20210119111623417.54102a95.png)
+![image-20210119111623417](C:\Users\Maktub\Pictures\Typora\image-20210119111623417.54102a95.png)
 
 - Compiler output：编译输出路径。
 - Inherit project compile output path：继承项目编译输出路径 选择此选项以使用为项目指定的路径。即上面在Project选项中设置的out文件路径。
@@ -102,13 +102,13 @@ Excluded：设置配出编译检查的文件，例如我们在project模块设�
  Exclude output paths： 排除输出路径，选中此复选框可以排除输出目录。
 
 - JavaDoc：使用可用控件组合与模块关联的外部JavaDocs存储位置的列表。
-- External Annotations：外部注释。使用![新](E:\Pictures\Typora\new.png) 和![删除](E:\Pictures\Typora\delete.png) 管理与模块关联的外部注释的位置（目录）列表。
+- External Annotations：外部注释。使用![新](C:\Users\Maktub\Pictures\Typora\new.png) 和![删除](C:\Users\Maktub\Pictures\Typora\delete.png) 管理与模块关联的外部注释的位置（目录）列表。
 
 #### （5）Dependencies
 
 在此选项卡上，您可以定义模块SDK并形成模块依赖关系列表。
 
-![image-20210119111650306](E:\Pictures\Typora\image-20210119111650306.75482bb5.png)
+![image-20210119111650306](C:\Users\Maktub\Pictures\Typora\image-20210119111650306.75482bb5.png)
 
 - Module SDK：模块SDK，选择模块SDK。
 
@@ -124,7 +124,7 @@ Excluded：设置配出编译检查的文件，例如我们在project模块设�
 
 首先，可以创建一个新的项目库，可以设置分类。
 
-![image-20210119111726500](E:\Pictures\Typora\image-20210119111726500.fa93e89b.png)
+![image-20210119111726500](C:\Users\Maktub\Pictures\Typora\image-20210119111726500.fa93e89b.png)
 
 可以添加本地jar包，网络来源的jar包，删除jar包。
 
@@ -132,7 +132,7 @@ Excluded：设置配出编译检查的文件，例如我们在project模块设�
 
 表示这个 module 有什么特征，比如 Web，Spring 和 Hibernate 等；
 
-![image-20210119111945066](E:\Pictures\Typora\image-20210119111945066.c8d945f5.png)
+![image-20210119111945066](C:\Users\Maktub\Pictures\Typora\image-20210119111945066.c8d945f5.png)
 
 #### （8）Artifacts
 
@@ -167,18 +167,18 @@ xinzhi-shop.iml
     <facet type="web" name="Web">
       <configuration>
         <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/WebContent/WEB-INF/web.xml" />
+          <deploymentDescriptor name="web.xml" url="filC:\Users\Maktub//$MODULE_DIR$/WebContent/WEB-INF/web.xml" />
         </descriptors>
         <webroots>
-          <root url="file://$MODULE_DIR$/WebContent" relative="/" />
+          <root url="filC:\Users\Maktub//$MODULE_DIR$/WebContent" relative="/" />
         </webroots>
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    <content url="filC:\Users\Maktub//$MODULE_DIR$">
+      <sourceFolder url="filC:\Users\Maktub//$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -187,7 +187,7 @@ xinzhi-shop.iml
 </module>
 ```
 
-![image-20210119112911467](E:\Pictures\Typora\image-20210119112911467.9c2beb67.png)
+![image-20210119112911467](C:\Users\Maktub\Pictures\Typora\image-20210119112911467.9c2beb67.png)
 
 > 这样别的idea打开项目时就能读取出来，并能明确项目的构建信息
 
@@ -231,11 +231,11 @@ xinzhi-shop.iml
 3. 配置path，%MAVEN_HOME%\bin
 4. cmd执行 mvn -v ，出现以下界面，成功
 
-![image-20210119135448688](E:\Pictures\Typora\image-20210119135448688.27a575d6.png)
+![image-20210119135448688](C:\Users\Maktub\Pictures\Typora\image-20210119135448688.27a575d6.png)
 
 ### 2、maven核心配置文件
 
-![image-20210119135523146](E:\Pictures\Typora\image-20210119135523146.df1dd1f2.png)
+![image-20210119135523146](C:\Users\Maktub\Pictures\Typora\image-20210119135523146.df1dd1f2.png)
 
 > 先照着配置
 
@@ -328,7 +328,7 @@ public class Hello{
 
 可以再`resources`文件夹下新建`db.properties`配置文件，或随便帮一个文件;
 
-![image-20210119140707129](E:\Pictures\Typora\image-20210119140707129.50ed3df9.png)
+![image-20210119140707129](C:\Users\Maktub\Pictures\Typora\image-20210119140707129.50ed3df9.png)
 
 执行，以下命令，可能会从网上下载内容，是在下载插件，不要担心。
 
@@ -338,19 +338,19 @@ mvn compile
 
 结果，并生成target目录
 
-![image-20210119140523923](E:\Pictures\Typora\image-20210119140523923.bd29458c.png)
+![image-20210119140523923](C:\Users\Maktub\Pictures\Typora\image-20210119140523923.bd29458c.png)
 
 > 结果发现我们编译的class文件和resources中的配置文件都放在了一起
 
-![image-20210119140855894](E:\Pictures\Typora\image-20210119140855894.e3a90542.png)
+![image-20210119140855894](C:\Users\Maktub\Pictures\Typora\image-20210119140855894.e3a90542.png)
 
 执行 mvn package
 
-![image-20210119141018664](E:\Pictures\Typora\image-20210119141018664.afdfa979.png)
+![image-20210119141018664](C:\Users\Maktub\Pictures\Typora\image-20210119141018664.afdfa979.png)
 
 观察target中已经有了我们打包好的jar包
 
-![image-20210119141117883](E:\Pictures\Typora\image-20210119141117883.859c52a9.png)
+![image-20210119141117883](C:\Users\Maktub\Pictures\Typora\image-20210119141117883.859c52a9.png)
 
 观察名字是不是我们**项目的名字加版本号**，当然此jar包无法运行，应为maven也不知道你的main方法在哪里，咱们后边讲。
 
@@ -394,19 +394,19 @@ mvn clean deploy
 
 下面maven比较常见的一些命令。
 
-| 命令                   | 说明                                                   |
-| ---------------------- | ------------------------------------------------------ |
-| mvn –version           | 显示版本信息                                           |
-| mvn clean              | 清理项目生产的临时文件,一般是模块下的target目录        |
-| mvn compile            | 编译源代码，一般编译模块下的src/main/java目录          |
-| mvn package            | 项目打包工具,会在模块下的target目录生成jar或war等文件  |
-| mvn test               | 测试命令,或执行src/test/java/下junit的测试用例         |
-| mvn install            | 将打包的jar/war文件复制到你的本地仓库中,供其他模块使用 |
-| mvn deploy             | 将打包的文件发布到远程参考,提供其他人员进行下载依赖    |
-| mvn site               | 生成项目相关信息的网站                                 |
-| mvn dependency:tree    | 打印出项目的整个依赖树                                 |
-| mvn archetype:generate | 创建Maven的普通java项目                                |
-| mvn tomcat:run         | 在tomcat容器中运行web应用                              |
+| 命令                                | 说明                                                   |
+| ----------------------------------- | ------------------------------------------------------ |
+| mvn –version                        | 显示版本信息                                           |
+| mvn clean                           | 清理项目生产的临时文件,一般是模块下的target目录        |
+| mvn compile                         | 编译源代码，一般编译模块下的src/main/java目录          |
+| mvn package                         | 项目打包工具,会在模块下的target目录生成jar或war等文件  |
+| mvn test                            | 测试命令,或执行src/test/java/下junit的测试用例         |
+| mvn install                         | 将打包的jar/war文件复制到你的本地仓库中,供其他模块使用 |
+| mvn deploy                          | 将打包的文件发布到远程参考,提供其他人员进行下载依赖    |
+| mvn site                            | 生成项目相关信息的网站                                 |
+| mvn dependency:tree                 | 打印出项目的整个依赖树                                 |
+| mvn archetypC:\Users\Maktubgenerate | 创建Maven的普通java项目                                |
+| mvn tomcat:run                      | 在tomcat容器中运行web应用                              |
 
 ### 6、Maven的版本规范（我们的项目）
 
@@ -435,11 +435,11 @@ Maven在版本管理时候可以使用几个特殊的字符串 SNAPSHOT，LATEST
 C:\Users\zn\.m2\repository
 ```
 
-![image-20210119141807314](E:\Pictures\Typora\image-20210119141807314.333aa77b.png)
+![image-20210119141807314](C:\Users\Maktub\Pictures\Typora\image-20210119141807314.333aa77b.png)
 
 > 两处都要配置，一个是当前项目的maven配置，一个是新建项目的maven配置。
 
-![image-20210119141825957](E:\Pictures\Typora\image-20210119141825957.88434a99.png)
+![image-20210119141825957](C:\Users\Maktub\Pictures\Typora\image-20210119141825957.88434a99.png)
 
 ## 三、Maven依赖（重点）
 
@@ -467,7 +467,7 @@ C:\Users\zn\.m2\repository
 
 > jar包会自动下载，流程如下
 
-![image-20210119141859117](E:\Pictures\Typora\image-20210119141859117.0e02f679.png)
+![image-20210119141859117](C:\Users\Maktub\Pictures\Typora\image-20210119141859117.0e02f679.png)
 
 ### 1、依赖范围
 
@@ -479,7 +479,7 @@ C:\Users\zn\.m2\repository
 
 > 普通java项目
 
-![image-20210119142123678](E:\Pictures\Typora\image-20210119142123678.cfc8abef.png)
+![image-20210119142123678](C:\Users\Maktub\Pictures\Typora\image-20210119142123678.cfc8abef.png)
 
 META-INF中有个文件，有以下内容，告诉jvm执行的时候去哪个类里找main方法。
 
@@ -494,7 +494,7 @@ Main-Class: com.xinzhi.HelloUser
 
 咱们的src打包后会放在
 
-![image-20210119142224760](E:\Pictures\Typora\image-20210119142224760.4aa4a2cd.png)
+![image-20210119142224760](C:\Users\Maktub\Pictures\Typora\image-20210119142224760.4aa4a2cd.png)
 
 src目录下的配置文件会和class文件一样，自动copy到应用的 WEB-INF/classes目录下 ，所以普通jar包的类路径就是根路径，没有资源，如果有配置文件也放在src目录下，他会同步打包在类路径下。
 
@@ -583,7 +583,7 @@ maven 项目不同的阶段引入到classpath中的依赖是不同的，例如�
 
 jar其实也是别人写的工程，他也会依赖其他的jar包，传递性让我们可以不用关系我们所依赖的jar他依赖了哪些jar，只要我们添加了依赖，他会自动将他所依赖的jar统统依赖进来。
 
-![image-20210119142319854](E:\Pictures\Typora\image-20210119142319854.e3076933.png)
+![image-20210119142319854](C:\Users\Maktub\Pictures\Typora\image-20210119142319854.e3076933.png)
 
 我们只需依赖A.jar，其他的会自动传递进来。
 
@@ -591,11 +591,11 @@ jar其实也是别人写的工程，他也会依赖其他的jar包，传递性�
 
 - **最短路径优先原则**：如果A依赖于B，B依赖于C，在B和C 中同时有log4j的依赖，并且这两个版本不一致，那么A会根据最短路径原则，在A中会传递过来B的log4j版本。
 
-![image-20210119142342227](E:\Pictures\Typora\image-20210119142342227.ddb3ade5.png)
+![image-20210119142342227](C:\Users\Maktub\Pictures\Typora\image-20210119142342227.ddb3ade5.png)
 
 - **路径相同先声明原则**：如果我们的工程同时依赖于B和A，B和C没有依赖关系，并且都有D的依赖，且版本不一致，那么会引入在pom.xml中先声明依赖的log4j版本。
 
-![image-20210119142458755](E:\Pictures\Typora\image-20210119142458755.6900ea82.png)
+![image-20210119142458755](C:\Users\Maktub\Pictures\Typora\image-20210119142458755.6900ea82.png)
 
 ```xml
 <dependency>
@@ -1203,7 +1203,7 @@ cat admin.password
 
 https://mirrors.huaweicloud.com/repository/maven/
 
-![image-20210119142856665](E:\Pictures\Typora\image-20210119142856665.ee3c5906.png)
+![image-20210119142856665](C:\Users\Maktub\Pictures\Typora\image-20210119142856665.ee3c5906.png)
 
 一般来说，Nexus 的仓库分为这么几类：
 
@@ -1326,7 +1326,7 @@ mvn compiler:compile
 
 web目录结构
 
-![image-20210119142712629](E:\Pictures\Typora\image-20210119142712629.db0a9b4a.png)
+![image-20210119142712629](C:\Users\Maktub\Pictures\Typora\image-20210119142712629.db0a9b4a.png)
 
 添加插件在build中
 
@@ -1346,7 +1346,7 @@ web目录结构
 
 点击idea右侧的maven我们可以方便的看到我们使用了什么插件，并可以点击执行相应的命令
 
-![image-20210119142643057](E:\Pictures\Typora\image-20210119142643057.0d6ba6f2.png)
+![image-20210119142643057](C:\Users\Maktub\Pictures\Typora\image-20210119142643057.0d6ba6f2.png)
 
 通过插件和命令我们都可以启动项目了，都不用部署到tomcat里了。
 
@@ -1374,7 +1374,7 @@ web目录结构
 
 > 执行命令 mvn clean package
 
-![image-20210119142753151](E:\Pictures\Typora\image-20210119142753151.6afc2630.png)
+![image-20210119142753151](C:\Users\Maktub\Pictures\Typora\image-20210119142753151.6afc2630.png)
 
 ### 5、jar包的插件
 
@@ -1426,7 +1426,7 @@ Archetype 是一个 Maven 插件，其任务是按照其模板来创建一个项
 执行如下命令即可创建Maven项目模板。
 
 ```css
-mvn archetype:generate
+mvn archetypC:\Users\Maktubgenerate
 ```
 
 常用的archetype有以下2种：
@@ -1439,7 +1439,7 @@ mvn archetype:generate
 - src/test/java测试代码目录及一个名为AppTest的测试用例
 
 ```bash
-mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifactId=maven-archetype-webapp
+mvn archetypC:\Users\Maktubgenerate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifactId=maven-archetype-webapp
 ```
 
 > maven-archetype-webapp
@@ -1453,8 +1453,24 @@ mvn archetype:generate -DgroupId=com.xinzhi -DartifactId=test -DarchetypeArtifac
 
 其实这个模板并不全。
 
-![image-20210119143518858](E:\Pictures\Typora\image-20210119143518858.84a28215.png)
+![image-20210119143518858](C:\Users\Maktub\Pictures\Typora\image-20210119143518858.84a28215.png)
 
-![image-20210119143443582](E:\Pictures\Typora\image-20210119143443582.ca5df109.png)
+![image-20210119143443582](C:\Users\Maktub\Pictures\Typora\image-20210119143443582.ca5df109.png)
 
 ### 完结！
+
+
+
+
+
+
+
+
+
+
+
+相同maven依赖不同版本的选择：
+
+- 短路经原则
+
+- 第一声明原则
