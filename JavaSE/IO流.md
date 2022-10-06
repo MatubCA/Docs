@@ -29,7 +29,7 @@
 
 
 
-> ## File类
+## File类
 
 🌈`java.io.File`类是对文件或文件夹进行操作的类，将现实中的文件、文件==夹或者不存在==的文件、文件`夹抽象成F`ile类。File类只能对文件本身进行操作，不能对文件内容操作。它是对文件与路径的抽象。与IO没有关系。
 
@@ -205,10 +205,6 @@ public static void selectFile(File file){
     System.out.println(map);
 }
 ```
-
- ![image-20220817210903160](https://raw.githubusercontent.com/MatubCA/Image/main/img2/202208172109249.png)
-
-![image-20220817211359024](https://raw.githubusercontent.com/MatubCA/Image/main/img2/202208172113054.png)
 
 ## Stream流
 

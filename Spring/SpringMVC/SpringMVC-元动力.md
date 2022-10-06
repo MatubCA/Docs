@@ -12,7 +12,7 @@
 
 > 我们之前学习的mvc模式就是这种【Servlet + JSP + Java Bean】 模式，早期的 MVC 模型如下图所示：
 
-![image-20211225215516299](C:\Users\Maktub\Pictures\Typora\image-20211225215516299.8c7f406e.png)
+![image-20211225215516299](E:\Pictures\Typora\image-20211225215516299.8c7f406e.png)
 
 首先用户的请求会到达 Servlet，然后根据请求调用相应的 JavaBean，并把所有的显示结果交给 JSP 去完成，这样的模式我们就称为 MVC 模式：
 
@@ -28,7 +28,7 @@
 
 Spring MVC 给出了自己的mvc方案：
 
-![image-20211225220443021](C:\Users\Maktub\Pictures\Typora\image-20211225220443021.c1d0b985.png)
+![image-20211225220443021](E:\Pictures\Typora\image-20211225220443021.c1d0b985.png)
 
 传统的模型层被拆分为了业务层（Service）和数据访问层（DAO,Data Access Object）。同时，在 Service层下可以通过 Spring 的声明式事务操作数据访问层。
 
@@ -46,11 +46,11 @@ spring的mvc有以下特点：
 
 > 创建工程
 
-![image-20211226182141482](C:\Users\Maktub\Pictures\Typora\image-20211226182141482.3455dee8.png)
+![image-20211226182141482](E:\Pictures\Typora\image-20211226182141482.3455dee8.png)
 
 > 完善一个webapp工程所必备的目录：
 
-![image-20211226182651477](C:\Users\Maktub\Pictures\Typora\image-20211226182651477.0283fefb.png)
+![image-20211226182651477](E:\Pictures\Typora\image-20211226182651477.0283fefb.png)
 
 > 添加一个最小的必须依赖
 
@@ -99,7 +99,7 @@ spring的mvc有以下特点：
 
 > 构建web项目:
 
-![image-20211226182543007](C:\Users\Maktub\Pictures\Typora\image-20211226182543007.07ba5257.png)
+![image-20211226182543007](E:\Pictures\Typora\image-20211226182543007.07ba5257.png)
 
 > web.xml模板：
 
@@ -114,15 +114,15 @@ spring的mvc有以下特点：
 
 > 配置tomcat，推荐使用tomcat9：
 
-![image-20211226182858458](C:\Users\Maktub\Pictures\Typora\image-20211226182858458.2c0103d0.png)
+![image-20211226182858458](E:\Pictures\Typora\image-20211226182858458.2c0103d0.png)
 
 > 部署项目
 
-![image-20211226182925849](C:\Users\Maktub\Pictures\Typora\image-20211226182925849.0cb03c2b.png)
+![image-20211226182925849](E:\Pictures\Typora\image-20211226182925849.0cb03c2b.png)
 
 > 启动tomcat
 
-![image-20211226183144510](C:\Users\Maktub\Pictures\Typora\image-20211226183144510.b9633719.png)
+![image-20211226183144510](E:\Pictures\Typora\image-20211226183144510.b9633719.png)
 
 > 写一个setvlet进行测试
 
@@ -142,7 +142,7 @@ public class TestServlet extends HttpServlet {
 
 > 在浏览器中进行测试，web项目构建成功：
 
-![image-20211226183813854](C:\Users\Maktub\Pictures\Typora\image-20211226183813854.76c5796d.png)
+![image-20211226183813854](E:\Pictures\Typora\image-20211226183813854.76c5796d.png)
 
 ### 2、搭建springmvc环境
 
@@ -240,6 +240,8 @@ public class TestServlet extends HttpServlet {
 </web-app>
 ```
 
+注意这里创建了两个工厂，Spring工厂和SpringMVC工厂，它俩的区别可以去看看另一篇文章。
+
 #### （3）编写配置文件
 
 > 名称：app-context.xml (其实就是个spring和springmvc共享的配置文件) ，我们可以建立在/WEB-INF/目录下：
@@ -265,6 +267,8 @@ public class TestServlet extends HttpServlet {
     </bean>
 </beans>
 ```
+
+这里直接将映射器和适配器显示初始化了，也可以简化为这种格式`<mvc:annotation-driven/>`，不过要注意引入mvc的schema
 
 #### （4）编写Controller
 
@@ -297,7 +301,7 @@ public class FirstController implements Controller {
 
 > 我们可以给项目换一个简单的名字：
 
-![image-20211226202101684](C:\Users\Maktub\Pictures\Typora\image-20211226202101684.30d07f9a.png)
+![image-20211226202101684](E:\Pictures\Typora\image-20211226202101684.30d07f9a.png)
 
 #### （6）创建jsp页面
 
@@ -311,7 +315,7 @@ public class FirstController implements Controller {
 
 #### （7）配置Tomcat，并启动测试
 
-![image-20211226211136778](C:\Users\Maktub\Pictures\Typora\image-20211226211136778.1aa72c65.png)
+![image-20211226211136778](E:\Pictures\Typora\image-20211226211136778.1aa72c65.png)
 
 ### 3、使用注解来一波
 
@@ -371,7 +375,70 @@ public class AnnotationController {
 
 #### （3）启动tomcat测试
 
-![image-20211226211203138](C:\Users\Maktub\Pictures\Typora\image-20211226211203138.d5ad695d.png)
+![image-20211226211203138](E:\Pictures\Typora\image-20211226211203138.d5ad695d.png)
+
+### 4、注解加配置类来一波
+
+#### （1）配置类
+
+```java
+//web容器配置类
+public class ServletContainersInitConfig extends AbstractDispatcherServletInitializer {
+    //加载springmvc配置类，产生springmvc容器（本质还是spring容器）
+    protected WebApplicationContext createServletApplicationContext() {
+        //初始化WebApplicationContext对象
+        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+        //加载指定配置类
+        ctx.register(SpringMvcConfig.class);
+        return ctx;
+    }
+
+    //设置由springmvc控制器处理的请求映射路径
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
+
+    //加载spring配置类
+    protected WebApplicationContext createRootApplicationContext() {
+        return null;
+    }
+}
+```
+
+#### （2）SpringMVC配置类
+
+```java
+//springmvc配置类，本质上还是一个spring配置类
+@Configuration
+@ComponentScan("com.itheima.controller")
+public class SpringMvcConfig {
+}
+```
+
+#### （3）编写Controller
+
+```java
+//定义表现层控制器bean
+@Controller
+public class UserController {
+    //设置映射路径为/save，即外部访问路径
+    @RequestMapping("/save")
+    //设置当前操作返回结果为指定json数据（本质上是一个字符串信息）
+    @ResponseBody
+    public String save(){
+        System.out.println("user save ...");
+        return "{'info':'springmvc'}";
+    }
+}
+```
+
+#### （4）测试
+
+![image-20210804191218260](E:\Pictures\Typora\image-20210804191218260-1664453671885-2.png)
+
+
+
+
 
 ## 三、初识springmvc
 
@@ -412,7 +479,7 @@ View Resolver负责将处理结果生成View视图，View Resolver首先根据�
 
 > 分发的流程大致如下：
 
-![image-20211226000022362](C:\Users\Maktub\Pictures\Typora\image-20211226000022362.53a756b2.png)
+![image-20211226000022362](E:\Pictures\Typora\image-20211226000022362.53a756b2.png)
 
 > 我们甚至可以大致看一下源码：
 
@@ -507,7 +574,7 @@ public interface HandlerInterceptor {
 
 在我们的web项目中存在至少三个上下文，分别是【servlet上下文】，【spring上下文】以及【springmvc上下文】，具体如下：
 
-![image-20211227124918177](C:\Users\Maktub\Pictures\Typora\image-20211227124918177.42163183.png)
+![image-20211227124918177](E:\Pictures\Typora\image-20211227124918177.42163183.png)
 
 #### （1）ServletContext
 
@@ -519,7 +586,7 @@ public interface HandlerInterceptor {
 - 在这个方法中，spring会初始化一个【上下文】，这个上下文被称为【根上下文】，即【WebApplicationContext】，这是一个接口类，其实际的实现类是XmlWebApplicationContext。这个就是spring的IoC容器，其对应的Bean定义的配置由web.xml中的【context-param】配置指定，默认配置文件为【/WEB-INF/applicationContext.xml】。
 - 在这个IoC容器初始化完毕后，spring以【WebApplicationContext.ROOTWEBAPPLICATIONCONTEXTATTRIBUTE】为属性Key，将其存储到ServletContext中，便于将来获取；
 
-![image-20211227121741118](C:\Users\Maktub\Pictures\Typora\image-20211227121741118.c2e07b33.png)
+![image-20211227121741118](E:\Pictures\Typora\image-20211227121741118.c2e07b33.png)
 
 相关配置：
 
@@ -543,7 +610,7 @@ public interface HandlerInterceptor {
 
 我们可以通过debug，使用`ServletContext servletContext = req.getServletContext()`查方法看ServletContext，如下：
 
-![image-20220104174425480](C:\Users\Maktub\Pictures\Typora\image-20220104174425480.e736a148.png)
+![image-20220104174425480](E:\Pictures\Typora\image-20220104174425480.e736a148.png)
 
 ## 四、核心技术篇
 
@@ -1115,7 +1182,7 @@ http://localhost:8080/app/hellomvc?array=1&array=3
 
 结果都是没有问题的：
 
-![image-20211227000947754](C:\Users\Maktub\Pictures\Typora\image-20211227000947754.2d3907cc.png)
+![image-20211227000947754](E:\Pictures\Typora\image-20211227000947754.2d3907cc.png)
 
 #### （9）复杂参数的传递
 
@@ -1187,7 +1254,7 @@ public String queryParam(QueryVo queryVo) {
 
 下面以一个时序图建立简单模型来描述上述对象在三层架构应用中的位置：
 
-![image-20211229113542929](C:\Users\Maktub\Pictures\Typora\image-20211229113542929.9442d4f8.png)
+![image-20211229113542929](E:\Pictures\Typora\image-20211229113542929.9442d4f8.png)
 
 大致流程如下：
 
@@ -1278,11 +1345,11 @@ public String getUsers(){
 
 **注意：**@ResponseBody能将返回的结果直接放在响应体中，不走视图解析器。
 
-![image-20220104165859913](C:\Users\Maktub\Pictures\Typora\image-20220104165859913.6fceaea0.png)
+![image-20220104165859913](E:\Pictures\Typora\image-20220104165859913.6fceaea0.png)
 
 浏览器中添加插件json viewer可以有如上显示：
 
-![image-20220104165437124](C:\Users\Maktub\Pictures\Typora\image-20220104165437124.263169b2.png)
+![image-20220104165437124](E:\Pictures\Typora\image-20220104165437124.263169b2.png)
 
 > 当然springmvc也考虑到了，每次这样写也其实挺麻烦，我们还可以向容器注入一个专门处理消息转换的bean：
 
@@ -1389,7 +1456,7 @@ public class CustomObjectMapper extends ObjectMapper {
 
 在前端发送的数据中可能会如如下情况，Contetn-Type是application/json，请求体中是json格式数据：
 
-![image-20210129214924284](C:\Users\Maktub\Pictures\Typora\image-20210129214924284.60b527c1.png)
+![image-20210129214924284](E:\Pictures\Typora\image-20210129214924284.60b527c1.png)
 
 @RequestBody注解可以【直接获取请求体的数据】。
 
@@ -1462,7 +1529,7 @@ private Date birthday;
 
 > 处理的过程大致如下：
 
-![image-20220104170103757](C:\Users\Maktub\Pictures\Typora\image-20220104170103757.5545a86b.png)
+![image-20220104170103757](E:\Pictures\Typora\image-20220104170103757.5545a86b.png)
 
 ### 10、数据校验
 
@@ -1615,7 +1682,7 @@ public String insert(@Validated UserVO user, BindingResult br) {
 
 如下图所示：
 
-![image-20211230114025288](C:\Users\Maktub\Pictures\Typora\image-20211230114025288.f6aaf567.png)
+![image-20211230114025288](E:\Pictures\Typora\image-20211230114025288.f6aaf567.png)
 
 然后，我们可以配置一个新的Tymeleaf视图解析器，order设置的低一些，这样两个视图解析器都可以生效：
 
@@ -1678,17 +1745,17 @@ thymeleaf语法详解：
 - 一种是当前方法捕获处理（try-catch），这种处理方式会造成业务代码和异常处理代码的耦合。
 - 另一种是自己不处理，而是抛给调用者处理（throws），调用者再抛给它的调用者，也就是一直向上抛，指导传递给浏览器。
 
-![image-20211229185603473](C:\Users\Maktub\Pictures\Typora\image-20211229185603473.f936ba74.png)
+![image-20211229185603473](E:\Pictures\Typora\image-20211229185603473.f936ba74.png)
 
 被异常填充的页面是长这个样子的：
 
-![image-20211230103016315](C:\Users\Maktub\Pictures\Typora\image-20211230103016315.363ad564.png)
+![image-20211230103016315](E:\Pictures\Typora\image-20211230103016315.363ad564.png)
 
 在这种方法的基础上，衍生出了SpringMVC的异常处理机制。系统的dao、service、controller都通过throws Exception向上抛出，最后由springmvc前端控制器交由异常处理器进行异常处理，如下图：
 
 小知识：service层尽量不要处理异常，如果自己捕获并处理了，异常就不生效了。特别是不要生吞异常。
 
-![image-20211229185734642](C:\Users\Maktub\Pictures\Typora\image-20211229185734642.eab41dda.png)
+![image-20211229185734642](E:\Pictures\Typora\image-20211229185734642.eab41dda.png)
 
 Spring MVC的Controller出现异常的默认处理是响应一个500状态码，再把错误信息显示在页面上，如果用户看到这样的页面，一定会觉得你这个网站太LOW了。
 
@@ -1786,7 +1853,7 @@ public class GlobalExceptionResolverController  {
 2. 熟练掌握`SpringMVC`拦截器对于我们开发非常有帮助，在没使用权限框架(`shiro，spring security`)之前，一般使用拦截器进行认证和授权操作。
 3. SpringMVC拦截器有许多应用场景，比如：登录认证拦截器，字符过滤拦截器，日志操作拦截器等等。
 
-![image-20220106104047477](C:\Users\Maktub\Pictures\Typora\image-20220106104047477.5bb62b73.png)
+![image-20220106104047477](E:\Pictures\Typora\image-20220106104047477.5bb62b73.png)
 
 #### （1）自定义拦截器
 
@@ -1813,7 +1880,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
 #### （2）拦截器拦截流程
 
-![image-20220106175037525](C:\Users\Maktub\Pictures\Typora\image-20220106175037525.c6d2bdb7.png)
+![image-20220106175037525](E:\Pictures\Typora\image-20220106175037525.c6d2bdb7.png)
 
 #### （3）拦截器规则
 
@@ -1962,7 +2029,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
 当一个请求url的协议、域名、端口三者之间任意一个与当前页面url不同时，就会产生跨域。
 
-![image-20220104182117116](C:\Users\Maktub\Pictures\Typora\image-20220104182117116.67349f10.png)
+![image-20220104182117116](E:\Pictures\Typora\image-20220104182117116.67349f10.png)
 
 举一个例子：从127.0.0.1:5000访问的页面中，有Javascript使用ajax访问127.0.0.1:8888的接口就会产生跨域；
 
@@ -2020,7 +2087,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
 GET /cors HTTP/1.1
 Origin: http://api.bob.com
 Host: api.ydlclass.com
-Accept-LanguagC:\Users\Maktub en-US
+Accept-LanguagE: en-US
 Connection: keep-alive
 User-Agent: Mozilla/5.0...
 ```
@@ -2035,7 +2102,7 @@ User-Agent: Mozilla/5.0...
 Access-Control-Allow-Origin: http://api.bob.com
 Access-Control-Allow-Credentials: true
 Access-Control-Expose-Headers: FooBar
-Content-TypC:\Users\Maktub text/html; charset=utf-8
+Content-TypE: text/html; charset=utf-8
 ```
 
 上面的头信息之中，有三个与CORS请求相关的字段，都以`Access-Control-`开头。
@@ -2107,7 +2174,7 @@ Origin: http://api.bob.com
 Access-Control-Request-Method: PUT
 Access-Control-Request-Headers: X-Custom-Header
 Host: api.ydlclass.com
-Accept-LanguagC:\Users\Maktub en-US
+Accept-LanguagE: en-US
 Connection: keep-alive
 User-Agent: Mozilla/5.0...
 ```
@@ -2130,17 +2197,17 @@ User-Agent: Mozilla/5.0...
 
 ```http
  HTTP/1.1 200 OK
-DatC:\Users\Maktub Mon, 01 Dec 2008 01:15:39 GMT
+DatE: Mon, 01 Dec 2008 01:15:39 GMT
 Server: Apache/2.0.61 (Unix)
 Access-Control-Allow-Origin: http://api.bob.com
 Access-Control-Allow-Methods: GET, POST, PUT
 Access-Control-Allow-Headers: X-Custom-Header
-Content-TypC:\Users\Maktub text/html; charset=utf-8
+Content-TypE: text/html; charset=utf-8
 Content-Encoding: gzip
 Content-Length: 0
-Keep-AlivC:\Users\Maktub timeout=2, max=100
+Keep-AlivE: timeout=2, max=100
 Connection: Keep-Alive
-Content-TypC:\Users\Maktub text/plain
+Content-TypE: text/plain
 ```
 
 上面的HTTP回应中，关键的是`Access-Control-Allow-Origin`字段，表示`http://api.bob.com`可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。
@@ -2162,7 +2229,7 @@ Origin http://api.bob.com is not allowed by Access-Control-Allow-Origin.
 Access-Control-Allow-Methods: GET, POST, PUT
 Access-Control-Allow-Headers: X-Custom-Header
 Access-Control-Allow-Credentials: true
-Access-Control-Max-AgC:\Users\Maktub 1728000
+Access-Control-Max-AgE: 1728000
 ```
 
 **（1）Access-Control-Allow-Methods**
@@ -2370,8 +2437,8 @@ Restful web service是一种常见的rest的应用,是遵守了rest风格的web�
     });
 
     instance.post('goods', {
-        namC:\Users\Maktub '洗发露',
-        pricC:\Users\Maktub 25454
+        namE: '洗发露',
+        pricE: 25454
     }).then(function (response) {
         console.log(response);
     }).catch(function (error) {
@@ -2379,8 +2446,8 @@ Restful web service是一种常见的rest的应用,是遵守了rest风格的web�
     });
 
     instance.put('goods', {
-        namC:\Users\Maktub '洗发露',
-        pricC:\Users\Maktub 25454
+        namE: '洗发露',
+        pricE: 25454
     }).then(function (response) {
         console.log(response);
     }).catch(function (error) {
@@ -2424,7 +2491,7 @@ $.ajax( {
     type : "put",
     url : "http://localhost:8080/springmvc/user/rest/1",
     dataType : "json",
-    data: {id:12,usernamC:\Users\Maktub"楠哥",password:"123"},
+    data: {id:12,usernamE:"楠哥",password:"123"},
     success : function(data) {
         console.log("get请求！---------------------")
         console.log(data)
@@ -2435,7 +2502,7 @@ $.ajax( {
     type : "post",
     url : "http://localhost:8080/springmvc/user/rest",
     dataType : "json",
-    data: {id:12,usernamC:\Users\Maktub"楠哥",password:"123"},
+    data: {id:12,usernamE:"楠哥",password:"123"},
     success : function(data) {
         console.log("get请求！---------------------")
         console.log(data)
@@ -2451,7 +2518,7 @@ $.ajax( {
 
 我们可以看到DispatcherServlet的核心方法中第一句就是如下的代码：
 
-![image-20220104171526682](C:\Users\Maktub\Pictures\Typora\image-20220104171526682.501b9dfc.png)
+![image-20220104171526682](E:\Pictures\Typora\image-20220104171526682.501b9dfc.png)
 
 **注：**MultipartResolver 默认不开启，需要手动开启。
 
@@ -2645,12 +2712,12 @@ public ResponseEntity<byte[]> download2(){
 
 WebSocket 协议提供了一种标准化方式，可通过单个 TCP 连接在客户端和服务器之间建立全双工、双向通信通道。它是与 HTTP 不同的 TCP 协议，但旨在通过 HTTP 工作，使用端口 80 和 443。
 
-WebSocket 交互以 HTTP 请求开始，HTTP请求中包含`UpgradC:\Users\Maktub websocket `时，会切换到 WebSocket 协议。以下示例显示了这样的交互：
+WebSocket 交互以 HTTP 请求开始，HTTP请求中包含`UpgradE: websocket `时，会切换到 WebSocket 协议。以下示例显示了这样的交互：
 
 ```yaml
 GET /spring-websocket-portfolio/portfolio HTTP/1.1
 Host: localhost:8080
-UpgradC:\Users\Maktub websocket 
+UpgradE: websocket 
 Connection: Upgrade 
 Sec-WebSocket-Key: Uc9l9TMkWGbHFD2qnFHltg==
 Sec-WebSocket-Protocol: v10.stomp, v11.stomp
@@ -2810,7 +2877,7 @@ public class WebSocketConfig implements WebSocketConfigurer{
   <input type="text" id="serverUrl" size="35" value="" /> <br />
   <button onclick="connect()">connect</button>
   <button onclick="wsclose()">disConnect</button>
-  <br /> <strong>messagC:\Users\Maktub</strong> <br /> <input id="txtMsg" type="text" size="50" />
+  <br /> <strong>messagE:</strong> <br /> <input id="txtMsg" type="text" size="50" />
   <br />
   <button onclick="sendEvent()">发送</button>
 </div>
@@ -2911,11 +2978,11 @@ ws:127.0.0.1:8088/app/message
 
 我们可以看到在websocket的请求中有这样的首部信息：
 
-![image-20220106143523571](C:\Users\Maktub\Pictures\Typora\image-20220106143523571.092e8101.png)
+![image-20220106143523571](E:\Pictures\Typora\image-20220106143523571.092e8101.png)
 
 而且我们多次发送消息，并没有新的请求产生：
 
-![image-20220106143650427](C:\Users\Maktub\Pictures\Typora\image-20220106143650427.78c67cfd.png)
+![image-20220106143650427](E:\Pictures\Typora\image-20220106143650427.78c67cfd.png)
 
 小知识：我们经常看到有很多地方使用sockjs完成websocket的建立，原因是一些浏览器中缺少对WebSocket的支持。SockJS是一个浏览器JavaScript库，它提供了一个连贯的、跨浏览器的Javascript API，它在浏览器和web服务器之间创建了一个低延迟、全双工、跨域通信通道。
 

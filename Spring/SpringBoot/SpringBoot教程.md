@@ -10,7 +10,7 @@
 
 #### （1）官网： https://spring.io/
 
-![image-20220119105911027](C:\Users\Maktub\Pictures\Typora\image-20220119105911027.f76857f8.png)
+![image-20220119105911027](E:\Pictures\Typora\image-20220119105911027.f76857f8.png)
 
 #### （2）spring缺点：
 
@@ -118,13 +118,13 @@ public class HelloController {
 
 ### 4、快速构建SpringBoot工程
 
-![image-20220119171114892](C:\Users\Maktub\Pictures\Typora\image-20220119171114892.5265752f.png)
+![image-20220119171114892](E:\Pictures\Typora\image-20220119171114892.5265752f.png)
 
-![image-20220119171223806](C:\Users\Maktub\Pictures\Typora\image-20220119171223806.6ceaed8c.png)
+![image-20220119171223806](E:\Pictures\Typora\image-20220119171223806.6ceaed8c.png)
 
-![image-20220119171317631](C:\Users\Maktub\Pictures\Typora\image-20220119171317631.5d8ee079.png)
+![image-20220119171317631](E:\Pictures\Typora\image-20220119171317631.5d8ee079.png)
 
-![image-20220119171328347](C:\Users\Maktub\Pictures\Typora\image-20220119171328347.7bc66160.png)
+![image-20220119171328347](E:\Pictures\Typora\image-20220119171328347.7bc66160.png)
 
 编写conreoller
 
@@ -211,7 +211,7 @@ YAML是一种直观的能够被电脑识别的的数据数据序列化格式，�
 server: 
 	port: 8080  
     address: 127.0.0.1
-namC:\Users\Maktub abc
+namE: abc
 ```
 
 ### 3、SpringBoot配置-yaml数据格式
@@ -220,9 +220,9 @@ namC:\Users\Maktub abc
 
 ```yaml
 person:  
-   namC:\Users\Maktub itlils
+   namE: itlils
 # 行内写法
-person: {namC:\Users\Maktub itlils}
+person: {namE: itlils}
 ```
 
 **数组**：一组按次序排列的值
@@ -245,9 +245,9 @@ msg2: "hello \n world"  # 双引识别转义字符
 **参数引用**
 
 ```yaml
-namC:\Users\Maktub itlils 
+namE: itlils 
 person:
-  namC:\Users\Maktub ${itlils} # 引用上边定义的name值
+  namE: ${itlils} # 引用上边定义的name值
 ```
 
 ### 4、SpringBoot配置-获取数据
@@ -390,7 +390,7 @@ spring:
 ---
 spring:
   profiles:
-    activC:\Users\Maktub dev
+    activE: dev
 ```
 
 1. **profile激活方式**
@@ -415,8 +415,8 @@ spring:
 
 加载顺序为下文的排列顺序，高优先级配置的属性会生效
 
-- filC:\Users\Maktub./config/：当前项目下的/config目录下
-- filC:\Users\Maktub./ ：当前项目的根目录
+- filE:./config/：当前项目下的/config目录下
+- filE:./ ：当前项目的根目录
 - classpath:/config/：classpath的/config目录
 - classpath:/ ：classpath的根目录
 
@@ -586,11 +586,11 @@ application.yml
 ```yaml
 # datasource
 spring:
-  datasourcC:\Users\Maktub
+  datasourcE:
     url: jdbc:mysql://127.0.0.1:3306/springboot?serverTimezone=UTC
-    usernamC:\Users\Maktub root
+    usernamE: root
     password: root
-    driver-class-namC:\Users\Maktub com.mysql.jdbc.Driver
+    driver-class-namE: com.mysql.jdbc.Driver
 ```
 
 ⑤纯注解开发 新建接口com.ydl.springbootmybatis.mapper
@@ -646,7 +646,7 @@ resources下建立xml文件 UserMapper.xml
 ```text
 mybatis:
   mapper-locations: classpath:mapper/*
-  type-aliases-packagC:\Users\Maktub com.ydl.springbootmybatis.domain
+  type-aliases-packagE: com.ydl.springbootmybatis.domain
 ```
 
 测试
@@ -1077,7 +1077,7 @@ public class SpringbootConditionApplication {
 
 查看条件注解源码
 
-![image-20220308110947447](C:\Users\Maktub\Pictures\Typora\image-20220308110947447.1f8a03da.png)
+![image-20220308110947447](E:\Pictures\Typora\image-20220308110947447.1f8a03da.png)
 
 **SpringBoot 提供的常用条件注解：**
 
@@ -1091,11 +1091,11 @@ ConditionalOnMissingBean：判断环境中没有对应Bean才初始化Bean
 
 查看继承关系图
 
-![1571306414687](C:\Users\Maktub\Pictures\Typora\1571306414687.a32a6428.png)
+![1571306414687](E:\Pictures\Typora\1571306414687.a32a6428.png)
 
 排除Tomcat
 
-![1571306366201](C:\Users\Maktub\Pictures\Typora\1571306366201.64d62f01.png)
+![1571306366201](E:\Pictures\Typora\1571306366201.64d62f01.png)
 
 pom文件中的排除依赖效果
 
@@ -1123,7 +1123,7 @@ pom文件中的排除依赖效果
 
 springboot中的autoconfig工程里把常用的对象的配置类都有了，只要工程中，引入了相关起步依赖，这些对象在我们本项目的容器中就有了。
 
-![image-20220308114104880](C:\Users\Maktub\Pictures\Typora\image-20220308114104880.6ada055c.png)
+![image-20220308114104880](E:\Pictures\Typora\image-20220308114104880.6ada055c.png)
 
 ### 4、 SpringBoot自动配置-Enable注解原理-重点
 
@@ -1190,7 +1190,7 @@ public class UserConfig {
 
 确实，本工程中没有这个第三方jar包中的bean对象
 
-![image-20220308114747847](C:\Users\Maktub\Pictures\Typora\image-20220308114747847.51eb05bd.png)
+![image-20220308114747847](E:\Pictures\Typora\image-20220308114747847.51eb05bd.png)
 
 **EnableUser注解类**
 
@@ -1221,7 +1221,7 @@ public @interface EnableUser {
 
 **重要**：**springbootapplication 由三个注解组成**
 
-![image-20220308114911692](C:\Users\Maktub\Pictures\Typora\image-20220308114911692.84cdfb05.png)
+![image-20220308114911692](E:\Pictures\Typora\image-20220308114911692.84cdfb05.png)
 
 ```text
 @SpringBootConfiguration 自动配置相关
@@ -1235,7 +1235,7 @@ public @interface EnableUser {
 
 ①导入Bean。注意bean名字是全限定名。
 
-![image-20220308151120063](C:\Users\Maktub\Pictures\Typora\image-20220308151120063.31f41f74.png)
+![image-20220308151120063](E:\Pictures\Typora\image-20220308151120063.31f41f74.png)
 
 ②导入配置类
 
@@ -1260,7 +1260,7 @@ public @interface EnableUser {
   }
   ```
 
-  ![image-20220308151811604](C:\Users\Maktub\Pictures\Typora\image-20220308151811604.c1db2a75.png)
+  ![image-20220308151811604](E:\Pictures\Typora\image-20220308151811604.c1db2a75.png)
 
 - 导入 ImportBeanDefinitionRegistrar 实现类。@Import({MyImportBeanDefinitionRegistrar.class})
 
@@ -1276,7 +1276,7 @@ public @interface EnableUser {
   }
   ```
 
-  ![image-20220308152152225](C:\Users\Maktub\Pictures\Typora\image-20220308152152225.387350aa.png)
+  ![image-20220308152152225](E:\Pictures\Typora\image-20220308152152225.387350aa.png)
 
   SpringbootEnableApplication测试代码
 
@@ -1324,7 +1324,7 @@ public @interface EnableUser {
 
 面试题：springboot 自动配置原理？
 
-![image-20220308152539680](C:\Users\Maktub\Pictures\Typora\image-20220308152539680.657155e8.png)
+![image-20220308152539680](E:\Pictures\Typora\image-20220308152539680.657155e8.png)
 
 - @EnableAutoConfiguration 注解内部使用 @Import(AutoConfigurationImportSelector.**class**)来加载配置类。
 - 配置文件位置：META-INF/spring.factories，该配置文件中定义了大量的配置类，当 SpringBoot 应用启动时，会自动加载这些配置类，初始化Bean
@@ -1464,7 +1464,7 @@ public class RedisAutoConfiguration {
 }
 ```
 
-![image-20220308160934531](C:\Users\Maktub\Pictures\Typora\image-20220308160934531.fafad01b.png)
+![image-20220308160934531](E:\Pictures\Typora\image-20220308160934531.fafad01b.png)
 
 ## 第三章 事件监听
 
@@ -1594,7 +1594,7 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
 2. 判断是否是Web环境
 3. 获取初始化类、监听器类
 
-![1571369439416](C:\Users\Maktub\Pictures\Typora\1571369439416.e6fabc2c.png)
+![1571369439416](E:\Pictures\Typora\1571369439416.e6fabc2c.png)
 
 ### 2、 SpringBoot流程分析-run
 
@@ -1614,7 +1614,7 @@ public class MySpringApplicationRunListener implements SpringApplicationRunListe
 
    执行refreshContext方法后才真正创建Bean
 
-![1571373793325](C:\Users\Maktub\Pictures\Typora\1571373793325.e08dd78b.png)
+![1571373793325](E:\Pictures\Typora\1571373793325.e08dd78b.png)
 
 ## 第五章 监控-运维
 
@@ -1808,7 +1808,7 @@ management.endpoints.web.exposure.include=*
 
 SpringBoot Admin 有两个角色，客户端(Client)和服务端(Server)。
 
-![image-20220308171618412](C:\Users\Maktub\Pictures\Typora\image-20220308171618412.ba2b6c37.png)
+![image-20220308171618412](E:\Pictures\Typora\image-20220308171618412.ba2b6c37.png)
 
 以下为创建服务端和客户端工程步骤：
 
@@ -1818,7 +1818,7 @@ SpringBoot Admin 有两个角色，客户端(Client)和服务端(Server)。
 
 ②导入依赖坐标 admin-starter-server
 
-![image-20220308171740452](C:\Users\Maktub\Pictures\Typora\image-20220308171740452.14ff260c.png)
+![image-20220308171740452](E:\Pictures\Typora\image-20220308171740452.14ff260c.png)
 
 ```xml
       <dependency>
@@ -1866,7 +1866,7 @@ management.endpoints.web.exposure.include=*
 
 ④启动server和client服务，访问server
 
-![image-20220308172552987](C:\Users\Maktub\Pictures\Typora\image-20220308172552987.fb0e8a06.png)
+![image-20220308172552987](E:\Pictures\Typora\image-20220308172552987.fb0e8a06.png)
 
 ## 第六章 SpringBoot部署
 

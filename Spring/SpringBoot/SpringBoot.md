@@ -4,7 +4,7 @@
 
 SpringBoot根据“约定由于配置”的思想，对很对的配置都会设置默认值，我们不必去显示的创建配置文件来进行配置，但当我们想进行更改配置或者添加配置的时候，我们可以很轻松的进行添加或者修改。
 
-![image-20220923094427710](C:\Users\Maktub\Pictures\Typora\image-20220923094427710.png)
+![image-20220923094427710](E:\Pictures\Typora\image-20220923094427710.png)
 
 创建SpringBoot的项目可以通过在idea和官网创建的两种方式
 
@@ -79,15 +79,15 @@ maven多环境和SpringBoot多环境的关联：
 
 - maven多环境配置
 
-  ![image-20220923120825209](C:\Users\Maktub\Pictures\Typora\image-20220923120825209.png)
+  ![image-20220923120825209](E:\Pictures\Typora\image-20220923120825209.png)
 
 - SprungBoot多环境配置
 
-  ![image-20220923120836663](C:\Users\Maktub\Pictures\Typora\image-20220923120836663.png)
+  ![image-20220923120836663](E:\Pictures\Typora\image-20220923120836663.png)
 
 - maven与SpringBoot多环境的整合
 
-  ![image-20220923120851779](C:\Users\Maktub\Pictures\Typora\image-20220923120851779.png)
+  ![image-20220923120851779](E:\Pictures\Typora\image-20220923120851779.png)
 
   
 
@@ -113,6 +113,14 @@ maven多环境和SpringBoot多环境的关联：
 整合mybatis，创建DAO接口，设置@mapper注解，用于Spring容器进行扫描创建代理对象，在配置文件中添加配置信息了，SpringBoot2.4.3之前内置集成的是mysql8以前的版本，需要设置时区
 
 
+
+
+
+SpringBoot自动装配原理：
+
+在我们使用Spring时，我们需要手动将我们需要使用的对象，创建处理，并交由Spring容器进行管理，但是在SpringBoot中，我们可以不用去手动创建Bean，而是由SpringBoot进行自动装配，按需加载！
+
+这是因为SpringBoot提供了一套SPI，交由不同的依赖去实现，SpringBoot会自动扫描外部引用jar包的META-INF/Spring-factories文件，
 
 
 
